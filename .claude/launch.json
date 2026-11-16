@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "dogbreeds",
+      "runtimeExecutable": "uv",
+      "runtimeArgs": ["run", "python", "app.py"],
+      "port": 7870
+    }
+  ]
+}
