@@ -1,0 +1,50 @@
+{
+  "how": {
+    "chosen_on": "Oxford-IIIT Pets trainval + pizza_steak_sushi train",
+    "tested_on": "Oxford-IIIT Pets test + pizza_steak_sushi test",
+    "keep_dogs": 0.98,
+    "target_accuracy": 0.95
+  },
+  "models": {
+    "EfficientNet-B0 (ImageNet, 5.3M parameters)": {
+      "dog_threshold": 0.48,
+      "breed_threshold": 0.69,
+      "plot": "docs/stage3_thresholds_b0.png",
+      "test": {
+        "photos": {
+          "dog": 2486,
+          "cat": 1183,
+          "food": 75
+        },
+        "dogs_accepted": 0.9783,
+        "cats_rejected": 0.9451,
+        "food_rejected": 1.0,
+        "breed_top1_accuracy_all_dogs": 0.8921,
+        "breed_top3_accuracy_all_dogs": 0.9832,
+        "dogs_named_green": 0.7774,
+        "green_accuracy": 0.9691,
+        "yellow_true_breed_in_top3": 0.9417
+      }
+    },
+    "EfficientNet-B2 (ImageNet, 9.1M parameters)": {
+      "dog_threshold": 0.42,
+      "breed_threshold": 0.64,
+      "plot": "docs/stage3_thresholds_b2.png",
+      "test": {
+        "photos": {
+          "dog": 2486,
+          "cat": 1183,
+          "food": 75
+        },
+        "dogs_accepted": 0.9751,
+        "cats_rejected": 0.9569,
+        "food_rejected": 1.0,
+        "breed_top1_accuracy_all_dogs": 0.9032,
+        "breed_top3_accuracy_all_dogs": 0.9842,
+        "dogs_named_green": 0.8736,
+        "green_accuracy": 0.9543,
+        "yellow_true_breed_in_top3": 0.9354
+      }
+    }
+  }
+}
