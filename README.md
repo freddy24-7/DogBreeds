@@ -28,7 +28,7 @@ uv run pytest             # run the tests
 | 1 | Upload page with a top-3 breed list, random guesses | App structure, the `Predictor` interface | ✅ done |
 | 2 | Real predictions without any training (ImageNet already knows 118 breeds) | Pre-trained models, softmax, top-k | ✅ done, see [README_stage2.md](README_stage2.md) |
 | 3 | "I don't see a dog" for cats, cars, ... and "not sure which breed" | Measured thresholds, the two kinds of mistakes, out-of-distribution input | ✅ done, see [README_stage3.md](README_stage3.md) |
-| 4 | Model report: accuracy on a Stanford Dogs test set | Datasets, DataLoaders, evaluation before training | |
+| 4 | Model report: accuracy on a Stanford Dogs test set | Datasets, DataLoaders, evaluation, calibration, leakage | ✅ done, see [README_stage4.md](README_stage4.md) |
 | 5 | Model picker: ImageNet vs fine-tuned | Transfer learning, caching features | |
 | 6 | "Commonly confused" breeds with examples | Error analysis, fine-tuning more layers | |
 | 7 | Heatmap of where the model looked | Explainability (Grad-CAM) | |
@@ -43,7 +43,10 @@ dogbreeds/predictors.py   the Predictor interface and all predictors (models)
 dogbreeds/stages/         one module per stage; each builds its own tab
 tests/                    the contract every predictor must pass, plus app checks
 README_stageN.md          what each stage adds and the concepts behind it
-scripts/                  measurements that produce config/ and docs/ (e.g. the stage 3 thresholds)
+dogbreeds/data.py         datasets: Stanford Dogs, Oxford Pets dogs, your own photos
+dogbreeds/evaluate.py     the metrics (top-k, per breed, confusions, calibration)
+scripts/                  measurements that produce config/, reports/ and docs/
+reports/                  model reports (stage 4: the baseline to beat)
 config/, docs/            measured settings the app reads, and their plots
 data/                     downloaded datasets (not in git)
 ```
