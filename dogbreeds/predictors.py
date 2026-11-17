@@ -10,6 +10,7 @@ without changing the UI. Same idea as mocking a service in normal software.
 import random
 import time
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Protocol
 
 import torch
@@ -141,6 +142,77 @@ EFFNET_B2 = ImageNetPredictor("EfficientNet-B2 (ImageNet, 9.1M parameters)",
                               torchvision.models.efficientnet_b2,
                               torchvision.models.EfficientNet_B2_Weights.IMAGENET1K_V1)
 
+# --------------------------------------------------------------------------
+# Stage 5: the same backbone, with a head we trained ourselves.
+# --------------------------------------------------------------------------
+
+HEAD_FILE = Path(__file__).resolve().parent.parent / "models" / "stage5_head_b2.pth"
+FINETUNED_NAME = "EfficientNet-B2 + our own head (trained on Stanford Dogs)"
+
+
+class FineTunedPredictor:
+    """Stage 5: EfficientNet-B2's frozen backbone with two heads on top.
+
+        photo -> backbone -> 1,408 features -+-> ImageNet's head -> "is it a dog?" (dog share, as in stage 3)
+                                             +-> our own head     -> "which of the 120 breeds?"
+
+    The backbone, by far the slowest part, runs only once per photo; both heads are a
+    single matrix multiplication each. Our head is made by scripts/stage5_train_head.py.
+    """
+
+    def __init__(self, name: str, base: ImageNetPredictor, head_file: Path):
+        self.name = name
+        self.base = base             # shares the model (and its download) with the stage 2-4 B2
+        self.head_file = head_file
+        self._head = None
+
+    @property
+    def head(self):
+        if self._head is None:
+            from dogbreeds.finetune import load_head
+            self._head, self.breeds, self.info = load_head(self.head_file)
+        return self._head
+
+    def compare(self, image: Image.Image, top_k: int = 3) -> dict[str, ImageNetAnalysis]:
+        """Both heads' answers for one photo, from a single pass through the backbone.
+
+        Our head gives P(breed | dog). To fit the stage 3 format, where breed probabilities
+        are out of all 1000 classes, we multiply by the dog share: P(breed) = P(dog) x P(breed | dog).
+        """
+        from dogbreeds.finetune import backbone
+        start = time.perf_counter()
+        x = self.base.weights.transforms()(image.convert("RGB")).unsqueeze(0)
+        with torch.inference_mode():
+            features = backbone(self.base.model, x)
+            imagenet_probs = torch.softmax(self.base.model.classifier(features)[0], dim=0)
+            our_probs = torch.softmax(self.head(features)[0], dim=0)
+        seconds = time.perf_counter() - start
+
+        dog_probs = imagenet_probs[DOG_CLASSES.start:DOG_CLASSES.stop]
+        dog_share = dog_probs.sum().item()
+        top_all = imagenet_probs.topk(top_k)
+        imagenet_top = [(self.base.categories[i], p) for p, i in zip(top_all.values.tolist(), top_all.indices.tolist())]
+        top_dogs = dog_probs.topk(top_k)
+        theirs = [(self.base.categories[DOG_CLASSES.start + i], p)
+                  for p, i in zip(top_dogs.values.tolist(), top_dogs.indices.tolist())]
+        top_ours = our_probs.topk(top_k)
+        ours = [(self.breeds[i], p * dog_share) for p, i in zip(top_ours.values.tolist(), top_ours.indices.tolist())]
+        return {"imagenet": ImageNetAnalysis(theirs, dog_share, imagenet_top, seconds),
+                "ours": ImageNetAnalysis(ours, dog_share, imagenet_top, seconds)}
+
+    def analyse(self, image: Image.Image, top_k: int = 3) -> ImageNetAnalysis:
+        return self.compare(image, top_k)["ours"]
+
+    def predict(self, image: Image.Image, top_k: int = 3) -> Prediction:
+        """Our head's own answer: P(breed | dog) for the 120 breeds."""
+        a = self.analyse(image, top_k)
+        return [(b, p / max(a.dog_share, 1e-12)) for b, p in a.breeds]
+
+
+FINETUNED_B2 = FineTunedPredictor(FINETUNED_NAME, EFFNET_B2, HEAD_FILE)
+
 # All predictors in the app. Each stage's tab picks the ones it shows.
+# The stage 5 model only exists after scripts/stage5_train_head.py has run.
 DUMMY = DummyPredictor()
-PREDICTORS: dict[str, Predictor] = {p.name: p for p in [DUMMY, EFFNET_B0, EFFNET_B2]}
+PREDICTORS: dict[str, Predictor] = {p.name: p for p in [DUMMY, EFFNET_B0, EFFNET_B2]
+                                    + ([FINETUNED_B2] if HEAD_FILE.exists() else [])}

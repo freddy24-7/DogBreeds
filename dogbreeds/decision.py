@@ -34,9 +34,12 @@ class Decision:
     breeds: Prediction   # breed probabilities given that it's a dog (they add up to at most 1)
 
 
-def load_thresholds(model_name: str) -> Thresholds:
-    """The measured thresholds for one model (each model has its own)."""
-    data = json.loads(THRESHOLDS_FILE.read_text())
+def load_thresholds(model_name: str, path: Path = THRESHOLDS_FILE) -> Thresholds:
+    """The measured thresholds for one model (each model has its own).
+
+    Stage 5's model keeps its thresholds in config/stage5_thresholds.json (same format).
+    """
+    data = json.loads(path.read_text())
     t = data["models"][model_name]
     return Thresholds(dog=t["dog_threshold"], breed=t["breed_threshold"])
 

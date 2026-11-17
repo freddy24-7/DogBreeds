@@ -1,0 +1,1951 @@
+{
+  "model": "EfficientNet-B2 + our own head (trained on Stanford Dogs)",
+  "cache_check": {
+    "max_probability_difference": 2.682209014892578e-06,
+    "same_top1_share": 1.0,
+    "top1_from_cache": 0.951048951048951
+  },
+  "split": {
+    "train": 10800,
+    "validation": 1200,
+    "test": 8580
+  },
+  "experiments": [
+    {
+      "key": "random_lr0.001",
+      "start": "random",
+      "lr": 0.001,
+      "label": "new head, random start, learning rate 0.001",
+      "best_epoch": 30,
+      "val_accuracy": 0.9291666746139526,
+      "val_loss": 0.202809676527977,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_loss": 4.805081844329834,
+          "val_accuracy": 0.006666666828095913
+        },
+        {
+          "epoch": 1,
+          "train_loss": 2.8984270623878197,
+          "val_loss": 1.2795240879058838,
+          "val_accuracy": 0.9024999737739563
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.7669825942428024,
+          "val_loss": 0.5052081346511841,
+          "val_accuracy": 0.9200000166893005
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.39555961109973764,
+          "val_loss": 0.36382919549942017,
+          "val_accuracy": 0.9241666793823242
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.2965201639246058,
+          "val_loss": 0.30804288387298584,
+          "val_accuracy": 0.9275000095367432
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.24492829349305895,
+          "val_loss": 0.2786669135093689,
+          "val_accuracy": 0.9241666793823242
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.21101388648704247,
+          "val_loss": 0.25830596685409546,
+          "val_accuracy": 0.9258333444595337
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.18677150658987188,
+          "val_loss": 0.24477005004882812,
+          "val_accuracy": 0.9233333468437195
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.1685596948862076,
+          "val_loss": 0.23552942276000977,
+          "val_accuracy": 0.9258333444595337
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.1522265860327968,
+          "val_loss": 0.2300635576248169,
+          "val_accuracy": 0.9241666793823242
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.13981470190816456,
+          "val_loss": 0.22422638535499573,
+          "val_accuracy": 0.9283333420753479
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.1296953066079705,
+          "val_loss": 0.2189631164073944,
+          "val_accuracy": 0.9283333420753479
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.11858088544121495,
+          "val_loss": 0.21659265458583832,
+          "val_accuracy": 0.9325000047683716
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.11094129301883557,
+          "val_loss": 0.21509234607219696,
+          "val_accuracy": 0.9316666722297668
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.10360303311436264,
+          "val_loss": 0.21313446760177612,
+          "val_accuracy": 0.9266666769981384
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.09513266555137105,
+          "val_loss": 0.21090067923069,
+          "val_accuracy": 0.9300000071525574
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.09009336207199979,
+          "val_loss": 0.20840005576610565,
+          "val_accuracy": 0.9325000047683716
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.0843729872946386,
+          "val_loss": 0.20930171012878418,
+          "val_accuracy": 0.9283333420753479
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.08004891918765174,
+          "val_loss": 0.20638206601142883,
+          "val_accuracy": 0.9308333396911621
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.07604745733517188,
+          "val_loss": 0.20658744871616364,
+          "val_accuracy": 0.9325000047683716
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.0709820535061536,
+          "val_loss": 0.20514458417892456,
+          "val_accuracy": 0.9308333396911621
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.06728993417488204,
+          "val_loss": 0.2060288041830063,
+          "val_accuracy": 0.9300000071525574
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.0645132256106094,
+          "val_loss": 0.20519715547561646,
+          "val_accuracy": 0.9291666746139526
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.061228235143202324,
+          "val_loss": 0.20355907082557678,
+          "val_accuracy": 0.9325000047683716
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.05739717598866533,
+          "val_loss": 0.20457592606544495,
+          "val_accuracy": 0.9283333420753479
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.05650419550913351,
+          "val_loss": 0.2046692967414856,
+          "val_accuracy": 0.9316666722297668
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.05243470485563632,
+          "val_loss": 0.2036799192428589,
+          "val_accuracy": 0.9283333420753479
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.05053699452016089,
+          "val_loss": 0.20556941628456116,
+          "val_accuracy": 0.9291666746139526
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.04915251087259363,
+          "val_loss": 0.20475643873214722,
+          "val_accuracy": 0.9275000095367432
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.04616530620941409,
+          "val_loss": 0.20437481999397278,
+          "val_accuracy": 0.9266666769981384
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.044671589638347976,
+          "val_loss": 0.202809676527977,
+          "val_accuracy": 0.9291666746139526
+        }
+      ]
+    },
+    {
+      "key": "random_lr0.01",
+      "start": "random",
+      "lr": 0.01,
+      "label": "new head, random start, learning rate 0.01",
+      "best_epoch": 6,
+      "val_accuracy": 0.9266666769981384,
+      "val_loss": 0.2332155406475067,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_loss": 4.805081844329834,
+          "val_accuracy": 0.006666666828095913
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.6686337706777784,
+          "val_loss": 0.24000009894371033,
+          "val_accuracy": 0.9141666889190674
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.13782278485872126,
+          "val_loss": 0.25383496284484863,
+          "val_accuracy": 0.9108333587646484
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.08630111809681963,
+          "val_loss": 0.23961254954338074,
+          "val_accuracy": 0.9208333492279053
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.06280864455633693,
+          "val_loss": 0.24314329028129578,
+          "val_accuracy": 0.9125000238418579
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.04312685407422207,
+          "val_loss": 0.23960937559604645,
+          "val_accuracy": 0.9275000095367432
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.03464686119446048,
+          "val_loss": 0.2332155406475067,
+          "val_accuracy": 0.9266666769981384
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.029558236156072882,
+          "val_loss": 0.24514280259609222,
+          "val_accuracy": 0.92166668176651
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.02749003514095589,
+          "val_loss": 0.2350131720304489,
+          "val_accuracy": 0.9258333444595337
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.026874741619383847,
+          "val_loss": 0.259342223405838,
+          "val_accuracy": 0.9241666793823242
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.02540610376469515,
+          "val_loss": 0.2701127529144287,
+          "val_accuracy": 0.9225000143051147
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.022154869328218477,
+          "val_loss": 0.2780568301677704,
+          "val_accuracy": 0.9225000143051147
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.018051308895702715,
+          "val_loss": 0.2646430730819702,
+          "val_accuracy": 0.9258333444595337
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.01927294641526209,
+          "val_loss": 0.27146726846694946,
+          "val_accuracy": 0.9258333444595337
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.016734026781524775,
+          "val_loss": 0.2752525508403778,
+          "val_accuracy": 0.9225000143051147
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.01575539810065594,
+          "val_loss": 0.2806106209754944,
+          "val_accuracy": 0.9266666769981384
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.014031791168230551,
+          "val_loss": 0.2749694883823395,
+          "val_accuracy": 0.9275000095367432
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.01631500898136033,
+          "val_loss": 0.2866373062133789,
+          "val_accuracy": 0.9183333516120911
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.016265383594565922,
+          "val_loss": 0.29240351915359497,
+          "val_accuracy": 0.92166668176651
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.015795941201073152,
+          "val_loss": 0.3063412606716156,
+          "val_accuracy": 0.9150000214576721
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.017348153629098778,
+          "val_loss": 0.2918635308742523,
+          "val_accuracy": 0.9191666841506958
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.013484291586059112,
+          "val_loss": 0.2978174686431885,
+          "val_accuracy": 0.9200000166893005
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.013950276594884969,
+          "val_loss": 0.3120230734348297,
+          "val_accuracy": 0.9183333516120911
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.013288130957495283,
+          "val_loss": 0.28669723868370056,
+          "val_accuracy": 0.9208333492279053
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.011662552473997629,
+          "val_loss": 0.3185274302959442,
+          "val_accuracy": 0.92166668176651
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.0168811033224618,
+          "val_loss": 0.30832844972610474,
+          "val_accuracy": 0.9258333444595337
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.02324456752726325,
+          "val_loss": 0.3086555004119873,
+          "val_accuracy": 0.9191666841506958
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.01823150900227052,
+          "val_loss": 0.3319728374481201,
+          "val_accuracy": 0.9208333492279053
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.01751301232070007,
+          "val_loss": 0.31163138151168823,
+          "val_accuracy": 0.9266666769981384
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.01597587000509655,
+          "val_loss": 0.31953975558280945,
+          "val_accuracy": 0.9183333516120911
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.012813108392680685,
+          "val_loss": 0.3541033864021301,
+          "val_accuracy": 0.9191666841506958
+        }
+      ]
+    },
+    {
+      "key": "imagenet_lr0.0001",
+      "start": "imagenet",
+      "lr": 0.0001,
+      "label": "start from ImageNet's head, learning rate 0.0001",
+      "best_epoch": 30,
+      "val_accuracy": 0.9433333277702332,
+      "val_loss": 0.16962209343910217,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_loss": 0.1972094029188156,
+          "val_accuracy": 0.9466666579246521
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.2203025026343487,
+          "val_loss": 0.19278104603290558,
+          "val_accuracy": 0.9458333253860474
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.21110560984523208,
+          "val_loss": 0.19003842771053314,
+          "val_accuracy": 0.9483333230018616
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.20533384287798845,
+          "val_loss": 0.187942236661911,
+          "val_accuracy": 0.9483333230018616
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.20074919175218653,
+          "val_loss": 0.1859009563922882,
+          "val_accuracy": 0.949999988079071
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.19566078894668154,
+          "val_loss": 0.1840314269065857,
+          "val_accuracy": 0.9516666531562805
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.18995258033275605,
+          "val_loss": 0.1828051209449768,
+          "val_accuracy": 0.9508333206176758
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.18637607292996514,
+          "val_loss": 0.18104887008666992,
+          "val_accuracy": 0.949999988079071
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.18303782253353684,
+          "val_loss": 0.17977690696716309,
+          "val_accuracy": 0.949999988079071
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.1795309035204075,
+          "val_loss": 0.1790967732667923,
+          "val_accuracy": 0.9491666555404663
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.17569436777521064,
+          "val_loss": 0.17805685102939606,
+          "val_accuracy": 0.9483333230018616
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.17276778086468025,
+          "val_loss": 0.17712494730949402,
+          "val_accuracy": 0.9474999904632568
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.1690652201793812,
+          "val_loss": 0.17634327709674835,
+          "val_accuracy": 0.9474999904632568
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.16586068127994183,
+          "val_loss": 0.1757860630750656,
+          "val_accuracy": 0.9483333230018616
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.16417690489027234,
+          "val_loss": 0.17508363723754883,
+          "val_accuracy": 0.9483333230018616
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.15939136069130014,
+          "val_loss": 0.17443248629570007,
+          "val_accuracy": 0.9491666555404663
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.15704783498137084,
+          "val_loss": 0.1738349050283432,
+          "val_accuracy": 0.9474999904632568
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.1546289375755522,
+          "val_loss": 0.1733168512582779,
+          "val_accuracy": 0.9483333230018616
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.15355345525123454,
+          "val_loss": 0.1728595346212387,
+          "val_accuracy": 0.9491666555404663
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.15160272536454378,
+          "val_loss": 0.17236635088920593,
+          "val_accuracy": 0.9466666579246521
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.1470936691209122,
+          "val_loss": 0.17186003923416138,
+          "val_accuracy": 0.9466666579246521
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.14477363016870287,
+          "val_loss": 0.1718047708272934,
+          "val_accuracy": 0.9458333253860474
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.1436861996297483,
+          "val_loss": 0.17116907238960266,
+          "val_accuracy": 0.9449999928474426
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.14143436248655672,
+          "val_loss": 0.1710236817598343,
+          "val_accuracy": 0.9466666579246521
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.1381107356040566,
+          "val_loss": 0.1707504838705063,
+          "val_accuracy": 0.9449999928474426
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.13778947386476728,
+          "val_loss": 0.17069266736507416,
+          "val_accuracy": 0.9441666603088379
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.1352906780551981,
+          "val_loss": 0.17026382684707642,
+          "val_accuracy": 0.9441666603088379
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.13401717710274239,
+          "val_loss": 0.17020194232463837,
+          "val_accuracy": 0.9441666603088379
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.13323141431366956,
+          "val_loss": 0.17006652057170868,
+          "val_accuracy": 0.9441666603088379
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.12840358970341859,
+          "val_loss": 0.16968320310115814,
+          "val_accuracy": 0.9441666603088379
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.12636227464234387,
+          "val_loss": 0.16962209343910217,
+          "val_accuracy": 0.9433333277702332
+        }
+      ]
+    },
+    {
+      "key": "imagenet_lr0.001",
+      "start": "imagenet",
+      "lr": 0.001,
+      "label": "start from ImageNet's head, learning rate 0.001",
+      "best_epoch": 4,
+      "val_accuracy": 0.9466666579246521,
+      "val_loss": 0.16811171174049377,
+      "history": [
+        {
+          "epoch": 0,
+          "train_loss": NaN,
+          "val_loss": 0.1972094029188156,
+          "val_accuracy": 0.9466666579246521
+        },
+        {
+          "epoch": 1,
+          "train_loss": 0.21256732796077374,
+          "val_loss": 0.17935940623283386,
+          "val_accuracy": 0.9433333277702332
+        },
+        {
+          "epoch": 2,
+          "train_loss": 0.16939421968327628,
+          "val_loss": 0.17349588871002197,
+          "val_accuracy": 0.9466666579246521
+        },
+        {
+          "epoch": 3,
+          "train_loss": 0.14558078445770123,
+          "val_loss": 0.16883710026741028,
+          "val_accuracy": 0.9424999952316284
+        },
+        {
+          "epoch": 4,
+          "train_loss": 0.12810585731709445,
+          "val_loss": 0.16811171174049377,
+          "val_accuracy": 0.9466666579246521
+        },
+        {
+          "epoch": 5,
+          "train_loss": 0.11364308596761138,
+          "val_loss": 0.17058661580085754,
+          "val_accuracy": 0.940833330154419
+        },
+        {
+          "epoch": 6,
+          "train_loss": 0.10061218584025347,
+          "val_loss": 0.16932787001132965,
+          "val_accuracy": 0.9449999928474426
+        },
+        {
+          "epoch": 7,
+          "train_loss": 0.09284314291896643,
+          "val_loss": 0.16832062602043152,
+          "val_accuracy": 0.9433333277702332
+        },
+        {
+          "epoch": 8,
+          "train_loss": 0.08459775447845459,
+          "val_loss": 0.16969288885593414,
+          "val_accuracy": 0.9433333277702332
+        },
+        {
+          "epoch": 9,
+          "train_loss": 0.07688665165945335,
+          "val_loss": 0.17108319699764252,
+          "val_accuracy": 0.9441666603088379
+        },
+        {
+          "epoch": 10,
+          "train_loss": 0.0718449712296327,
+          "val_loss": 0.17167353630065918,
+          "val_accuracy": 0.9441666603088379
+        },
+        {
+          "epoch": 11,
+          "train_loss": 0.06776855167967302,
+          "val_loss": 0.17161577939987183,
+          "val_accuracy": 0.9424999952316284
+        },
+        {
+          "epoch": 12,
+          "train_loss": 0.06185442095553433,
+          "val_loss": 0.17229090631008148,
+          "val_accuracy": 0.9424999952316284
+        },
+        {
+          "epoch": 13,
+          "train_loss": 0.05815047950104431,
+          "val_loss": 0.17383389174938202,
+          "val_accuracy": 0.9433333277702332
+        },
+        {
+          "epoch": 14,
+          "train_loss": 0.054409365858192796,
+          "val_loss": 0.17465759813785553,
+          "val_accuracy": 0.9391666650772095
+        },
+        {
+          "epoch": 15,
+          "train_loss": 0.05052921584910817,
+          "val_loss": 0.17478786408901215,
+          "val_accuracy": 0.9433333277702332
+        },
+        {
+          "epoch": 16,
+          "train_loss": 0.048063299178525254,
+          "val_loss": 0.1732940375804901,
+          "val_accuracy": 0.9399999976158142
+        },
+        {
+          "epoch": 17,
+          "train_loss": 0.04543982017923284,
+          "val_loss": 0.17724314332008362,
+          "val_accuracy": 0.9391666650772095
+        },
+        {
+          "epoch": 18,
+          "train_loss": 0.043240016373219316,
+          "val_loss": 0.1753554791212082,
+          "val_accuracy": 0.940833330154419
+        },
+        {
+          "epoch": 19,
+          "train_loss": 0.041670837181585804,
+          "val_loss": 0.17745766043663025,
+          "val_accuracy": 0.9383333325386047
+        },
+        {
+          "epoch": 20,
+          "train_loss": 0.0385524818715122,
+          "val_loss": 0.1768474131822586,
+          "val_accuracy": 0.9383333325386047
+        },
+        {
+          "epoch": 21,
+          "train_loss": 0.03709950468882366,
+          "val_loss": 0.17883339524269104,
+          "val_accuracy": 0.940833330154419
+        },
+        {
+          "epoch": 22,
+          "train_loss": 0.036452415734529495,
+          "val_loss": 0.17875222861766815,
+          "val_accuracy": 0.9383333325386047
+        },
+        {
+          "epoch": 23,
+          "train_loss": 0.034362814282929456,
+          "val_loss": 0.17784127593040466,
+          "val_accuracy": 0.940833330154419
+        },
+        {
+          "epoch": 24,
+          "train_loss": 0.03232392578489251,
+          "val_loss": 0.18018735945224762,
+          "val_accuracy": 0.934166669845581
+        },
+        {
+          "epoch": 25,
+          "train_loss": 0.03304872746820803,
+          "val_loss": 0.18115507066249847,
+          "val_accuracy": 0.9358333349227905
+        },
+        {
+          "epoch": 26,
+          "train_loss": 0.030584542679565924,
+          "val_loss": 0.1810390055179596,
+          "val_accuracy": 0.9399999976158142
+        },
+        {
+          "epoch": 27,
+          "train_loss": 0.029076468351262586,
+          "val_loss": 0.1842978596687317,
+          "val_accuracy": 0.9350000023841858
+        },
+        {
+          "epoch": 28,
+          "train_loss": 0.02906795960333612,
+          "val_loss": 0.18351346254348755,
+          "val_accuracy": 0.9391666650772095
+        },
+        {
+          "epoch": 29,
+          "train_loss": 0.026661629304289818,
+          "val_loss": 0.18366043269634247,
+          "val_accuracy": 0.9375
+        },
+        {
+          "epoch": 30,
+          "train_loss": 0.02637089485647502,
+          "val_loss": 0.181991845369339,
+          "val_accuracy": 0.9383333325386047
+        }
+      ]
+    }
+  ],
+  "chosen": "imagenet_lr0.001",
+  "test": {
+    "imagenet_head": {
+      "stanford_test": {
+        "photos": 8580,
+        "top1": 0.951048951048951,
+        "top3": 0.9960372960372961,
+        "top5": 0.9990675990675991,
+        "mean_confidence": 0.8869637846946716,
+        "ece": 0.06408515429614864,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 3,
+            "confidence": 0.16971321403980255,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 23,
+            "confidence": 0.25646495819091797,
+            "accuracy": 0.391304347826087
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 65,
+            "confidence": 0.3589724600315094,
+            "accuracy": 0.49230769230769234
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 183,
+            "confidence": 0.4603402316570282,
+            "accuracy": 0.5628415300546448
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 359,
+            "confidence": 0.5503952503204346,
+            "accuracy": 0.6796657381615598
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 385,
+            "confidence": 0.6520582437515259,
+            "accuracy": 0.8077922077922078
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 523,
+            "confidence": 0.7518312335014343,
+            "accuracy": 0.9101338432122371
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 1147,
+            "confidence": 0.8574891090393066,
+            "accuracy": 0.9659982563208369
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 5892,
+            "confidence": 0.9624548554420471,
+            "accuracy": 0.9972844534962662
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.9615,
+          "Japanese spaniel": 0.9059,
+          "Maltese dog": 0.9737,
+          "Pekinese": 0.9184,
+          "Shih-Tzu": 0.9123,
+          "Blenheim spaniel": 0.9886,
+          "papillon": 0.9896,
+          "toy terrier": 0.9583,
+          "Rhodesian ridgeback": 0.8889,
+          "Afghan hound": 0.9928,
+          "basset": 0.9867,
+          "beagle": 0.9579,
+          "bloodhound": 0.9885,
+          "bluetick": 0.9577,
+          "black-and-tan coonhound": 0.9661,
+          "Walker hound": 0.9434,
+          "English foxhound": 0.7368,
+          "redbone": 0.8333,
+          "borzoi": 1.0,
+          "Irish wolfhound": 0.9492,
+          "Italian greyhound": 0.9512,
+          "whippet": 0.8966,
+          "Ibizan hound": 0.9886,
+          "Norwegian elkhound": 0.9896,
+          "otterhound": 0.9804,
+          "Saluki": 0.98,
+          "Scottish deerhound": 0.9242,
+          "Weimaraner": 1.0,
+          "Staffordshire bullterrier": 0.8909,
+          "American Staffordshire terrier": 0.75,
+          "Bedlington terrier": 1.0,
+          "Border terrier": 0.9861,
+          "Kerry blue terrier": 0.962,
+          "Irish terrier": 0.9855,
+          "Norfolk terrier": 0.9306,
+          "Norwich terrier": 0.8941,
+          "Yorkshire terrier": 0.9219,
+          "wire-haired fox terrier": 0.8772,
+          "Lakeland terrier": 0.9897,
+          "Sealyham terrier": 0.9804,
+          "Airedale": 0.9902,
+          "cairn": 0.9794,
+          "Australian terrier": 0.8958,
+          "Dandie Dinmont": 0.975,
+          "Boston bull": 0.9634,
+          "miniature schnauzer": 1.0,
+          "giant schnauzer": 0.9474,
+          "standard schnauzer": 0.8727,
+          "Scotch terrier": 0.931,
+          "Tibetan terrier": 0.9057,
+          "silky terrier": 0.8554,
+          "soft-coated wheaten terrier": 0.9643,
+          "West Highland white terrier": 0.971,
+          "Lhasa": 0.8605,
+          "flat-coated retriever": 0.9808,
+          "curly-coated retriever": 0.9608,
+          "golden retriever": 0.96,
+          "Labrador retriever": 0.9437,
+          "Chesapeake Bay retriever": 0.9851,
+          "German short-haired pointer": 0.9808,
+          "vizsla": 0.963,
+          "English setter": 1.0,
+          "Irish setter": 1.0,
+          "Gordon setter": 1.0,
+          "Brittany spaniel": 0.9808,
+          "clumber": 0.98,
+          "English springer": 0.9831,
+          "Welsh springer spaniel": 1.0,
+          "cocker spaniel": 0.9831,
+          "Sussex spaniel": 0.9216,
+          "Irish water spaniel": 0.96,
+          "kuvasz": 0.94,
+          "schipperke": 0.9815,
+          "groenendael": 1.0,
+          "malinois": 1.0,
+          "briard": 0.9808,
+          "kelpie": 0.9623,
+          "komondor": 1.0,
+          "Old English sheepdog": 0.9855,
+          "Shetland sheepdog": 0.9298,
+          "collie": 0.6792,
+          "Border collie": 1.0,
+          "Bouvier des Flandres": 0.96,
+          "Rottweiler": 0.9808,
+          "German shepherd": 0.9231,
+          "Doberman": 0.98,
+          "miniature pinscher": 0.9881,
+          "Greater Swiss Mountain dog": 0.9559,
+          "Bernese mountain dog": 0.9831,
+          "Appenzeller": 0.9216,
+          "EntleBucher": 0.902,
+          "boxer": 0.9412,
+          "bull mastiff": 1.0,
+          "Tibetan mastiff": 0.9423,
+          "French bulldog": 1.0,
+          "Great Dane": 0.9643,
+          "Saint Bernard": 1.0,
+          "Eskimo dog": 0.46,
+          "malamute": 0.9103,
+          "Siberian husky": 0.8152,
+          "affenpinscher": 1.0,
+          "basenji": 0.9725,
+          "pug": 0.99,
+          "Leonberg": 1.0,
+          "Newfoundland": 0.9789,
+          "Great Pyrenees": 0.9558,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.9832,
+          "chow": 1.0,
+          "keeshond": 1.0,
+          "Brabancon griffon": 0.9811,
+          "Pembroke": 1.0,
+          "Cardigan": 0.9091,
+          "toy poodle": 0.9412,
+          "miniature poodle": 0.7818,
+          "standard poodle": 0.9661,
+          "Mexican hairless": 1.0,
+          "dingo": 0.9286,
+          "dhole": 0.96,
+          "African hunting dog": 1.0
+        },
+        "hardest": [
+          [
+            "Eskimo dog",
+            0.46
+          ],
+          [
+            "collie",
+            0.6792
+          ],
+          [
+            "English foxhound",
+            0.7368
+          ],
+          [
+            "American Staffordshire terrier",
+            0.75
+          ],
+          [
+            "miniature poodle",
+            0.7818
+          ],
+          [
+            "Siberian husky",
+            0.8152
+          ],
+          [
+            "redbone",
+            0.8333
+          ],
+          [
+            "silky terrier",
+            0.8554
+          ],
+          [
+            "Lhasa",
+            0.8605
+          ],
+          [
+            "standard schnauzer",
+            0.8727
+          ]
+        ],
+        "easiest": [
+          [
+            "African hunting dog",
+            1.0
+          ],
+          [
+            "Leonberg",
+            1.0
+          ],
+          [
+            "komondor",
+            1.0
+          ],
+          [
+            "Welsh springer spaniel",
+            1.0
+          ],
+          [
+            "Border collie",
+            1.0
+          ],
+          [
+            "Gordon setter",
+            1.0
+          ],
+          [
+            "Irish setter",
+            1.0
+          ],
+          [
+            "English setter",
+            1.0
+          ],
+          [
+            "miniature schnauzer",
+            1.0
+          ],
+          [
+            "bull mastiff",
+            1.0
+          ]
+        ],
+        "confused_pairs": [
+          {
+            "true": "Eskimo dog",
+            "predicted": "Siberian husky",
+            "count": 18,
+            "share": 0.36
+          },
+          {
+            "true": "American Staffordshire terrier",
+            "predicted": "Staffordshire bullterrier",
+            "count": 15,
+            "share": 0.2344
+          },
+          {
+            "true": "collie",
+            "predicted": "Border collie",
+            "count": 13,
+            "share": 0.2453
+          },
+          {
+            "true": "Siberian husky",
+            "predicted": "Eskimo dog",
+            "count": 12,
+            "share": 0.1304
+          },
+          {
+            "true": "English foxhound",
+            "predicted": "Walker hound",
+            "count": 12,
+            "share": 0.2105
+          },
+          {
+            "true": "Scottish deerhound",
+            "predicted": "Irish wolfhound",
+            "count": 9,
+            "share": 0.0682
+          },
+          {
+            "true": "miniature poodle",
+            "predicted": "toy poodle",
+            "count": 8,
+            "share": 0.1455
+          },
+          {
+            "true": "EntleBucher",
+            "predicted": "Appenzeller",
+            "count": 7,
+            "share": 0.0686
+          },
+          {
+            "true": "Lhasa",
+            "predicted": "Shih-Tzu",
+            "count": 7,
+            "share": 0.0814
+          },
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 6,
+            "share": 0.1091
+          }
+        ]
+      },
+      "stanford_test_21_breeds": {
+        "photos": 1630,
+        "top1": 0.9705521472392638,
+        "top3": 0.9969325153374233
+      },
+      "oxford_test": {
+        "photos": 2086,
+        "top1": 0.9031639501438159,
+        "top3": 0.9841802492809204,
+        "top5": 0.9928092042186002,
+        "mean_confidence": 0.8648136258125305,
+        "ece": 0.03850853268846458,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 1,
+            "confidence": 0.14926263689994812,
+            "accuracy": 0.0
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 18,
+            "confidence": 0.24405500292778015,
+            "accuracy": 0.3888888888888889
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 21,
+            "confidence": 0.3552786409854889,
+            "accuracy": 0.42857142857142855
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 64,
+            "confidence": 0.45337027311325073,
+            "accuracy": 0.453125
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 118,
+            "confidence": 0.5522427558898926,
+            "accuracy": 0.6101694915254238
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 119,
+            "confidence": 0.6515141129493713,
+            "accuracy": 0.7226890756302521
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 151,
+            "confidence": 0.7555328011512756,
+            "accuracy": 0.8145695364238411
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 265,
+            "confidence": 0.8572493195533752,
+            "accuracy": 0.9132075471698113
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 1329,
+            "confidence": 0.9624010324478149,
+            "accuracy": 0.9902182091798345
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.94,
+          "Japanese spaniel": 0.85,
+          "basset": 0.96,
+          "beagle": 0.85,
+          "Staffordshire bullterrier": 0.6854,
+          "Yorkshire terrier": 0.77,
+          "Scotch terrier": 0.8788,
+          "soft-coated wheaten terrier": 0.81,
+          "German short-haired pointer": 0.97,
+          "English setter": 0.94,
+          "cocker spaniel": 0.83,
+          "miniature pinscher": 0.85,
+          "boxer": 0.9495,
+          "Saint Bernard": 0.98,
+          "pug": 0.98,
+          "Leonberg": 0.96,
+          "Newfoundland": 0.9,
+          "Great Pyrenees": 0.89,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.97,
+          "keeshond": 0.9798
+        },
+        "hardest": [
+          [
+            "Staffordshire bullterrier",
+            0.6854
+          ],
+          [
+            "Yorkshire terrier",
+            0.77
+          ],
+          [
+            "soft-coated wheaten terrier",
+            0.81
+          ],
+          [
+            "cocker spaniel",
+            0.83
+          ],
+          [
+            "Japanese spaniel",
+            0.85
+          ],
+          [
+            "miniature pinscher",
+            0.85
+          ],
+          [
+            "beagle",
+            0.85
+          ],
+          [
+            "Scotch terrier",
+            0.8788
+          ],
+          [
+            "Great Pyrenees",
+            0.89
+          ],
+          [
+            "Newfoundland",
+            0.9
+          ]
+        ],
+        "easiest": [],
+        "confused_pairs": [
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 25,
+            "share": 0.2809
+          },
+          {
+            "true": "Japanese spaniel",
+            "predicted": "Pekinese",
+            "count": 13,
+            "share": 0.13
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "silky terrier",
+            "count": 13,
+            "share": 0.13
+          },
+          {
+            "true": "beagle",
+            "predicted": "Walker hound",
+            "count": 12,
+            "share": 0.12
+          },
+          {
+            "true": "Great Pyrenees",
+            "predicted": "golden retriever",
+            "count": 7,
+            "share": 0.07
+          },
+          {
+            "true": "soft-coated wheaten terrier",
+            "predicted": "Tibetan terrier",
+            "count": 6,
+            "share": 0.06
+          },
+          {
+            "true": "cocker spaniel",
+            "predicted": "English springer",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "Australian terrier",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "cocker spaniel",
+            "predicted": "Irish setter",
+            "count": 4,
+            "share": 0.04
+          },
+          {
+            "true": "miniature pinscher",
+            "predicted": "Rhodesian ridgeback",
+            "count": 4,
+            "share": 0.04
+          }
+        ]
+      }
+    },
+    "our_head": {
+      "stanford_test": {
+        "photos": 8580,
+        "top1": 0.9497668997668998,
+        "top3": 0.9956876456876457,
+        "top5": 0.9984848484848485,
+        "mean_confidence": 0.9217228889465332,
+        "ece": 0.028044013432411613,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 2,
+            "confidence": 0.14691105484962463,
+            "accuracy": 0.5
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 9,
+            "confidence": 0.26642754673957825,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 52,
+            "confidence": 0.35986313223838806,
+            "accuracy": 0.5192307692307693
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 131,
+            "confidence": 0.4624861180782318,
+            "accuracy": 0.5419847328244275
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 270,
+            "confidence": 0.5498908162117004,
+            "accuracy": 0.6518518518518519
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 310,
+            "confidence": 0.6526691913604736,
+            "accuracy": 0.7258064516129032
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 415,
+            "confidence": 0.7524253726005554,
+            "accuracy": 0.8457831325301205
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 694,
+            "confidence": 0.857742190361023,
+            "accuracy": 0.9221902017291066
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 6697,
+            "confidence": 0.9807472825050354,
+            "accuracy": 0.9937285351649993
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.9615,
+          "Japanese spaniel": 0.9294,
+          "Maltese dog": 0.9342,
+          "Pekinese": 0.9388,
+          "Shih-Tzu": 0.9298,
+          "Blenheim spaniel": 0.9659,
+          "papillon": 0.9792,
+          "toy terrier": 0.9583,
+          "Rhodesian ridgeback": 0.9444,
+          "Afghan hound": 0.9928,
+          "basset": 0.9867,
+          "beagle": 0.9263,
+          "bloodhound": 0.977,
+          "bluetick": 0.9577,
+          "black-and-tan coonhound": 0.9661,
+          "Walker hound": 0.8868,
+          "English foxhound": 0.8421,
+          "redbone": 0.9167,
+          "borzoi": 1.0,
+          "Irish wolfhound": 0.9237,
+          "Italian greyhound": 0.9634,
+          "whippet": 0.931,
+          "Ibizan hound": 0.9886,
+          "Norwegian elkhound": 0.9792,
+          "otterhound": 0.9804,
+          "Saluki": 0.97,
+          "Scottish deerhound": 0.9394,
+          "Weimaraner": 1.0,
+          "Staffordshire bullterrier": 0.8364,
+          "American Staffordshire terrier": 0.8438,
+          "Bedlington terrier": 1.0,
+          "Border terrier": 0.9861,
+          "Kerry blue terrier": 0.9494,
+          "Irish terrier": 0.9855,
+          "Norfolk terrier": 0.9444,
+          "Norwich terrier": 0.8588,
+          "Yorkshire terrier": 0.9375,
+          "wire-haired fox terrier": 0.8772,
+          "Lakeland terrier": 0.9794,
+          "Sealyham terrier": 0.9902,
+          "Airedale": 0.9804,
+          "cairn": 0.9794,
+          "Australian terrier": 0.875,
+          "Dandie Dinmont": 0.9625,
+          "Boston bull": 0.939,
+          "miniature schnauzer": 0.963,
+          "giant schnauzer": 0.9298,
+          "standard schnauzer": 0.8727,
+          "Scotch terrier": 0.931,
+          "Tibetan terrier": 0.9245,
+          "silky terrier": 0.8554,
+          "soft-coated wheaten terrier": 0.9643,
+          "West Highland white terrier": 0.971,
+          "Lhasa": 0.8953,
+          "flat-coated retriever": 0.9808,
+          "curly-coated retriever": 0.9608,
+          "golden retriever": 0.96,
+          "Labrador retriever": 0.9577,
+          "Chesapeake Bay retriever": 0.9851,
+          "German short-haired pointer": 0.9615,
+          "vizsla": 0.963,
+          "English setter": 1.0,
+          "Irish setter": 1.0,
+          "Gordon setter": 1.0,
+          "Brittany spaniel": 0.9808,
+          "clumber": 0.98,
+          "English springer": 0.9661,
+          "Welsh springer spaniel": 0.98,
+          "cocker spaniel": 0.9831,
+          "Sussex spaniel": 0.9216,
+          "Irish water spaniel": 0.98,
+          "kuvasz": 0.94,
+          "schipperke": 0.9815,
+          "groenendael": 1.0,
+          "malinois": 1.0,
+          "briard": 1.0,
+          "kelpie": 0.9434,
+          "komondor": 1.0,
+          "Old English sheepdog": 0.9855,
+          "Shetland sheepdog": 0.9649,
+          "collie": 0.6981,
+          "Border collie": 0.98,
+          "Bouvier des Flandres": 0.98,
+          "Rottweiler": 0.9423,
+          "German shepherd": 0.9231,
+          "Doberman": 0.98,
+          "miniature pinscher": 0.9643,
+          "Greater Swiss Mountain dog": 0.9559,
+          "Bernese mountain dog": 0.9746,
+          "Appenzeller": 0.9412,
+          "EntleBucher": 0.9216,
+          "boxer": 0.9216,
+          "bull mastiff": 1.0,
+          "Tibetan mastiff": 0.9615,
+          "French bulldog": 1.0,
+          "Great Dane": 0.9643,
+          "Saint Bernard": 0.9857,
+          "Eskimo dog": 0.66,
+          "malamute": 0.8718,
+          "Siberian husky": 0.7065,
+          "affenpinscher": 1.0,
+          "basenji": 0.9725,
+          "pug": 0.98,
+          "Leonberg": 1.0,
+          "Newfoundland": 0.9684,
+          "Great Pyrenees": 0.9204,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.9916,
+          "chow": 1.0,
+          "keeshond": 1.0,
+          "Brabancon griffon": 0.9623,
+          "Pembroke": 0.963,
+          "Cardigan": 0.9273,
+          "toy poodle": 0.8824,
+          "miniature poodle": 0.8545,
+          "standard poodle": 0.9661,
+          "Mexican hairless": 1.0,
+          "dingo": 0.8929,
+          "dhole": 0.98,
+          "African hunting dog": 1.0
+        },
+        "hardest": [
+          [
+            "Eskimo dog",
+            0.66
+          ],
+          [
+            "collie",
+            0.6981
+          ],
+          [
+            "Siberian husky",
+            0.7065
+          ],
+          [
+            "Staffordshire bullterrier",
+            0.8364
+          ],
+          [
+            "English foxhound",
+            0.8421
+          ],
+          [
+            "American Staffordshire terrier",
+            0.8438
+          ],
+          [
+            "miniature poodle",
+            0.8545
+          ],
+          [
+            "silky terrier",
+            0.8554
+          ],
+          [
+            "Norwich terrier",
+            0.8588
+          ],
+          [
+            "malamute",
+            0.8718
+          ]
+        ],
+        "easiest": [
+          [
+            "African hunting dog",
+            1.0
+          ],
+          [
+            "Leonberg",
+            1.0
+          ],
+          [
+            "Gordon setter",
+            1.0
+          ],
+          [
+            "groenendael",
+            1.0
+          ],
+          [
+            "malinois",
+            1.0
+          ],
+          [
+            "briard",
+            1.0
+          ],
+          [
+            "komondor",
+            1.0
+          ],
+          [
+            "Bedlington terrier",
+            1.0
+          ],
+          [
+            "Weimaraner",
+            1.0
+          ],
+          [
+            "English setter",
+            1.0
+          ]
+        ],
+        "confused_pairs": [
+          {
+            "true": "Siberian husky",
+            "predicted": "Eskimo dog",
+            "count": 24,
+            "share": 0.2609
+          },
+          {
+            "true": "collie",
+            "predicted": "Border collie",
+            "count": 11,
+            "share": 0.2075
+          },
+          {
+            "true": "Eskimo dog",
+            "predicted": "Siberian husky",
+            "count": 11,
+            "share": 0.22
+          },
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 9,
+            "share": 0.1636
+          },
+          {
+            "true": "American Staffordshire terrier",
+            "predicted": "Staffordshire bullterrier",
+            "count": 8,
+            "share": 0.125
+          },
+          {
+            "true": "Irish wolfhound",
+            "predicted": "Scottish deerhound",
+            "count": 8,
+            "share": 0.0678
+          },
+          {
+            "true": "English foxhound",
+            "predicted": "Walker hound",
+            "count": 8,
+            "share": 0.1404
+          },
+          {
+            "true": "Lhasa",
+            "predicted": "Shih-Tzu",
+            "count": 7,
+            "share": 0.0814
+          },
+          {
+            "true": "silky terrier",
+            "predicted": "Yorkshire terrier",
+            "count": 6,
+            "share": 0.0723
+          },
+          {
+            "true": "Scottish deerhound",
+            "predicted": "Irish wolfhound",
+            "count": 6,
+            "share": 0.0455
+          }
+        ]
+      },
+      "stanford_test_21_breeds": {
+        "photos": 1630,
+        "top1": 0.9625766871165644,
+        "top3": 0.9975460122699387
+      },
+      "oxford_test": {
+        "photos": 2086,
+        "top1": 0.9007670182166826,
+        "top3": 0.9827420901246404,
+        "top5": 0.9913710450623202,
+        "mean_confidence": 0.9026628136634827,
+        "ece": 0.013822865966182464,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 2,
+            "confidence": 0.17609253525733948,
+            "accuracy": 0.0
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 14,
+            "confidence": 0.26461261510849,
+            "accuracy": 0.35714285714285715
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 16,
+            "confidence": 0.3660869598388672,
+            "accuracy": 0.5
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 48,
+            "confidence": 0.46099814772605896,
+            "accuracy": 0.5208333333333334
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 79,
+            "confidence": 0.5505261421203613,
+            "accuracy": 0.6075949367088608
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 104,
+            "confidence": 0.657486081123352,
+            "accuracy": 0.6730769230769231
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 128,
+            "confidence": 0.7521002292633057,
+            "accuracy": 0.734375
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 177,
+            "confidence": 0.8569584488868713,
+            "accuracy": 0.7853107344632768
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 1518,
+            "confidence": 0.9822739362716675,
+            "accuracy": 0.9815546772068511
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.94,
+          "Japanese spaniel": 0.87,
+          "basset": 0.95,
+          "beagle": 0.85,
+          "Staffordshire bullterrier": 0.5506,
+          "Yorkshire terrier": 0.78,
+          "Scotch terrier": 0.8889,
+          "soft-coated wheaten terrier": 0.84,
+          "German short-haired pointer": 0.96,
+          "English setter": 0.95,
+          "cocker spaniel": 0.87,
+          "miniature pinscher": 0.85,
+          "boxer": 0.9394,
+          "Saint Bernard": 0.98,
+          "pug": 0.98,
+          "Leonberg": 0.95,
+          "Newfoundland": 0.9,
+          "Great Pyrenees": 0.88,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.98,
+          "keeshond": 0.9697
+        },
+        "hardest": [
+          [
+            "Staffordshire bullterrier",
+            0.5506
+          ],
+          [
+            "Yorkshire terrier",
+            0.78
+          ],
+          [
+            "soft-coated wheaten terrier",
+            0.84
+          ],
+          [
+            "miniature pinscher",
+            0.85
+          ],
+          [
+            "beagle",
+            0.85
+          ],
+          [
+            "Japanese spaniel",
+            0.87
+          ],
+          [
+            "cocker spaniel",
+            0.87
+          ],
+          [
+            "Great Pyrenees",
+            0.88
+          ],
+          [
+            "Scotch terrier",
+            0.8889
+          ],
+          [
+            "Newfoundland",
+            0.9
+          ]
+        ],
+        "easiest": [],
+        "confused_pairs": [
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 38,
+            "share": 0.427
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "silky terrier",
+            "count": 15,
+            "share": 0.15
+          },
+          {
+            "true": "Japanese spaniel",
+            "predicted": "Pekinese",
+            "count": 12,
+            "share": 0.12
+          },
+          {
+            "true": "beagle",
+            "predicted": "Walker hound",
+            "count": 10,
+            "share": 0.1
+          },
+          {
+            "true": "Great Pyrenees",
+            "predicted": "golden retriever",
+            "count": 8,
+            "share": 0.08
+          },
+          {
+            "true": "soft-coated wheaten terrier",
+            "predicted": "Tibetan terrier",
+            "count": 6,
+            "share": 0.06
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "Australian terrier",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "miniature pinscher",
+            "predicted": "Chihuahua",
+            "count": 4,
+            "share": 0.04
+          },
+          {
+            "true": "Leonberg",
+            "predicted": "Tibetan mastiff",
+            "count": 4,
+            "share": 0.04
+          },
+          {
+            "true": "Scotch terrier",
+            "predicted": "West Highland white terrier",
+            "count": 4,
+            "share": 0.0404
+          }
+        ]
+      }
+    }
+  },
+  "oxford_fixed": 24,
+  "oxford_broken": 29,
+  "examples": [
+    {
+      "path": "data/oxford-iiit-pet/images/english_setter_31.jpg",
+      "note": "fixed by our head"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/miniature_pinscher_93.jpg",
+      "note": "fixed by our head"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/scottish_terrier_46.jpg",
+      "note": "fixed by our head"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/pomeranian_60.jpg",
+      "note": "fixed by our head"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/basset_hound_29.jpg",
+      "note": "broken by our head"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/german_shorthaired_65.jpg",
+      "note": "broken by our head"
+    }
+  ],
+  "thresholds": {
+    "dog": 0.42,
+    "breed": 0.82,
+    "test": {
+      "photos": {
+        "dog": 2486,
+        "cat": 1183,
+        "food": 75
+      },
+      "dogs_accepted": 0.9751,
+      "cats_rejected": 0.9569,
+      "food_rejected": 1.0,
+      "breed_top1_accuracy_all_dogs": 0.9008,
+      "breed_top3_accuracy_all_dogs": 0.9827,
+      "dogs_named_green": 0.7977,
+      "green_accuracy": 0.9651,
+      "yellow_true_breed_in_top3": 0.9454
+    }
+  }
+}
