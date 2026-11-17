@@ -5,43 +5,25 @@ Run from the project folder with:
     uv run python app.py
 then open http://localhost:7870 in your browser.
 
-The app only talks to predictors through `predictor.predict(image)`
-(see dogbreeds/predictors.py), so this file barely changes when we add models.
+Each stage of the project has its own tab (see dogbreeds/stages/), so you can
+compare how the app behaved at every stage. The newest stage opens first.
+The tabs only talk to models through the Predictor interface in
+dogbreeds/predictors.py.
 """
 import gradio as gr
-from PIL import Image
 
-from dogbreeds.predictors import PREDICTORS
-
-
-def classify(image: Image.Image | None, model_name: str) -> dict[str, float]:
-    """Called by Gradio when a photo is uploaded or the model changes."""
-    if image is None:
-        return {}
-    predictions = PREDICTORS[model_name].predict(image, top_k=3)
-    # gr.Label wants {label: probability}; it draws the bars itself.
-    return dict(predictions)
-
+from dogbreeds.stages import STAGES
 
 with gr.Blocks(title="DogBreeds") as demo:
     gr.Markdown(
         "# 🐕 DogBreeds\n"
-        "Upload a photo of a dog and see which breed the model thinks it is."
+        "Upload a photo of a dog and see which breed the model thinks it is. "
+        "Each tab is one stage of the project; the newest is open."
     )
-    with gr.Row():
-        with gr.Column():
-            image = gr.Image(type="pil", label="Photo of a dog", sources=["upload", "webcam", "clipboard"])
-            model = gr.Dropdown(choices=list(PREDICTORS), value=next(iter(PREDICTORS)), label="Model")
-        with gr.Column():
-            result = gr.Label(num_top_classes=3, label="Top 3 breeds")
-            gr.Markdown(
-                "*Stage 1: the only model is a dummy that guesses at random. "
-                "It doesn't look at the photo at all. Real models arrive in stage 2.*"
-            )
-
-    # Predict again whenever the photo or the chosen model changes.
-    image.change(classify, inputs=[image, model], outputs=result)
-    model.change(classify, inputs=[image, model], outputs=result)
+    with gr.Tabs(selected=STAGES[-1].ID):
+        for stage in STAGES:
+            with gr.Tab(stage.TITLE, id=stage.ID):
+                stage.build()
 
 
 if __name__ == "__main__":

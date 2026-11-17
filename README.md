@@ -10,7 +10,9 @@ The model is one component behind a small interface, like a service you would mo
 predictor.predict(image, top_k=3)  ->  [("beagle", 0.82), ("basset", 0.09), ("harrier", 0.03)]
 ```
 
-The app (`app.py`) only calls this method. We start with a fake predictor and swap in real models later without touching the UI. The tests in `tests/` check this contract for every predictor, so they act as regression tests for each new model.
+The app (`app.py`) only calls this method. We start with a fake predictor and swap in real models later without touching the UI.
+
+Each stage has its own **tab** in the app, so you can compare how the app behaved at every stage. The newest stage opens first. Each stage also has its own README with the details: `README_stage2.md`, and so on. The tests in `tests/` check this contract for every predictor, so they act as regression tests for each new model.
 
 ## Run it
 
@@ -24,7 +26,7 @@ uv run pytest             # run the tests
 | # | What you see in the app | What you learn | Status |
 |---|---|---|---|
 | 1 | Upload page with a top-3 breed list, random guesses | App structure, the `Predictor` interface | ✅ done |
-| 2 | Real predictions without any training (ImageNet already knows ~120 breeds) | Pre-trained models, softmax, top-k | |
+| 2 | Real predictions without any training (ImageNet already knows 118 breeds) | Pre-trained models, softmax, top-k | ✅ done, see [README_stage2.md](README_stage2.md) |
 | 3 | "I don't see a dog" for cats, cars, ... | Confidence thresholds, out-of-distribution input | |
 | 4 | Model report: accuracy on a Stanford Dogs test set | Datasets, DataLoaders, evaluation before training | |
 | 5 | Model picker: ImageNet vs fine-tuned | Transfer learning, caching features | |
@@ -36,7 +38,9 @@ uv run pytest             # run the tests
 ## Layout
 
 ```
-app.py                    the Gradio UI
-dogbreeds/predictors.py   the Predictor interface and all predictors
-tests/                    the contract every predictor must pass
+app.py                    puts the stage tabs together into one app
+dogbreeds/predictors.py   the Predictor interface and all predictors (models)
+dogbreeds/stages/         one module per stage; each builds its own tab
+tests/                    the contract every predictor must pass, plus app checks
+README_stageN.md          what each stage adds and the concepts behind it
 ```
