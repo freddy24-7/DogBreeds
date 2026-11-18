@@ -1,0 +1,30 @@
+{
+  "how": {
+    "chosen_on": "Oxford-IIIT Pets trainval + pizza_steak_sushi train (same rules as stage 3)",
+    "tested_on": "Oxford-IIIT Pets test + pizza_steak_sushi test",
+    "keep_dogs": 0.98,
+    "target_accuracy": 0.95
+  },
+  "models": {
+    "EfficientNet-B2, last blocks fine-tuned on Stanford Dogs": {
+      "dog_threshold": 0.42,
+      "breed_threshold": 0.85,
+      "plot": "docs/stage6_thresholds.png",
+      "test": {
+        "photos": {
+          "dog": 2486,
+          "cat": 1183,
+          "food": 75
+        },
+        "dogs_accepted": 0.9751,
+        "cats_rejected": 0.9569,
+        "food_rejected": 1.0,
+        "breed_top1_accuracy_all_dogs": 0.8965,
+        "breed_top3_accuracy_all_dogs": 0.9818,
+        "dogs_named_green": 0.8097,
+        "green_accuracy": 0.9602,
+        "yellow_true_breed_in_top3": 0.9444
+      }
+    }
+  }
+}

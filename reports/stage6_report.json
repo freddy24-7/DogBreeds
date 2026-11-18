@@ -1,0 +1,1911 @@
+{
+  "model": "EfficientNet-B2, last blocks fine-tuned on Stanford Dogs",
+  "setup": {
+    "first_trained_block": 7,
+    "trainable_weights": 3403332,
+    "frozen_weights": 4466742,
+    "epochs": 6,
+    "lr": 0.0001,
+    "train_minutes": 30.3
+  },
+  "history": [
+    {
+      "epoch": 0,
+      "train_loss": NaN,
+      "val_loss": 0.1972094029188156,
+      "val_accuracy": 0.9466666666666667
+    },
+    {
+      "epoch": 1,
+      "train_loss": 0.27763573868407143,
+      "val_loss": 0.1748741716146469,
+      "val_accuracy": 0.9358333333333333
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.2002821356223689,
+      "val_loss": 0.1900666058063507,
+      "val_accuracy": 0.9333333333333333
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.17324345924512105,
+      "val_loss": 0.19706107676029205,
+      "val_accuracy": 0.9275
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.14514704073192897,
+      "val_loss": 0.20125170052051544,
+      "val_accuracy": 0.9266666666666666
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.12025287156303724,
+      "val_loss": 0.23353753983974457,
+      "val_accuracy": 0.92
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.10397822385308919,
+      "val_loss": 0.2379387468099594,
+      "val_accuracy": 0.9225
+    }
+  ],
+  "best_epoch": 1,
+  "test": {
+    "imagenet_head": {
+      "stanford_test": {
+        "photos": 8580,
+        "top1": 0.951048951048951,
+        "top3": 0.9960372960372961,
+        "top5": 0.9990675990675991,
+        "mean_confidence": 0.8869637846946716,
+        "ece": 0.06408515429614864,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 3,
+            "confidence": 0.16971321403980255,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 23,
+            "confidence": 0.25646495819091797,
+            "accuracy": 0.391304347826087
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 65,
+            "confidence": 0.3589724600315094,
+            "accuracy": 0.49230769230769234
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 183,
+            "confidence": 0.4603402316570282,
+            "accuracy": 0.5628415300546448
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 359,
+            "confidence": 0.5503952503204346,
+            "accuracy": 0.6796657381615598
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 385,
+            "confidence": 0.6520582437515259,
+            "accuracy": 0.8077922077922078
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 523,
+            "confidence": 0.7518312335014343,
+            "accuracy": 0.9101338432122371
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 1147,
+            "confidence": 0.8574891090393066,
+            "accuracy": 0.9659982563208369
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 5892,
+            "confidence": 0.9624548554420471,
+            "accuracy": 0.9972844534962662
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.9615,
+          "Japanese spaniel": 0.9059,
+          "Maltese dog": 0.9737,
+          "Pekinese": 0.9184,
+          "Shih-Tzu": 0.9123,
+          "Blenheim spaniel": 0.9886,
+          "papillon": 0.9896,
+          "toy terrier": 0.9583,
+          "Rhodesian ridgeback": 0.8889,
+          "Afghan hound": 0.9928,
+          "basset": 0.9867,
+          "beagle": 0.9579,
+          "bloodhound": 0.9885,
+          "bluetick": 0.9577,
+          "black-and-tan coonhound": 0.9661,
+          "Walker hound": 0.9434,
+          "English foxhound": 0.7368,
+          "redbone": 0.8333,
+          "borzoi": 1.0,
+          "Irish wolfhound": 0.9492,
+          "Italian greyhound": 0.9512,
+          "whippet": 0.8966,
+          "Ibizan hound": 0.9886,
+          "Norwegian elkhound": 0.9896,
+          "otterhound": 0.9804,
+          "Saluki": 0.98,
+          "Scottish deerhound": 0.9242,
+          "Weimaraner": 1.0,
+          "Staffordshire bullterrier": 0.8909,
+          "American Staffordshire terrier": 0.75,
+          "Bedlington terrier": 1.0,
+          "Border terrier": 0.9861,
+          "Kerry blue terrier": 0.962,
+          "Irish terrier": 0.9855,
+          "Norfolk terrier": 0.9306,
+          "Norwich terrier": 0.8941,
+          "Yorkshire terrier": 0.9219,
+          "wire-haired fox terrier": 0.8772,
+          "Lakeland terrier": 0.9897,
+          "Sealyham terrier": 0.9804,
+          "Airedale": 0.9902,
+          "cairn": 0.9794,
+          "Australian terrier": 0.8958,
+          "Dandie Dinmont": 0.975,
+          "Boston bull": 0.9634,
+          "miniature schnauzer": 1.0,
+          "giant schnauzer": 0.9474,
+          "standard schnauzer": 0.8727,
+          "Scotch terrier": 0.931,
+          "Tibetan terrier": 0.9057,
+          "silky terrier": 0.8554,
+          "soft-coated wheaten terrier": 0.9643,
+          "West Highland white terrier": 0.971,
+          "Lhasa": 0.8605,
+          "flat-coated retriever": 0.9808,
+          "curly-coated retriever": 0.9608,
+          "golden retriever": 0.96,
+          "Labrador retriever": 0.9437,
+          "Chesapeake Bay retriever": 0.9851,
+          "German short-haired pointer": 0.9808,
+          "vizsla": 0.963,
+          "English setter": 1.0,
+          "Irish setter": 1.0,
+          "Gordon setter": 1.0,
+          "Brittany spaniel": 0.9808,
+          "clumber": 0.98,
+          "English springer": 0.9831,
+          "Welsh springer spaniel": 1.0,
+          "cocker spaniel": 0.9831,
+          "Sussex spaniel": 0.9216,
+          "Irish water spaniel": 0.96,
+          "kuvasz": 0.94,
+          "schipperke": 0.9815,
+          "groenendael": 1.0,
+          "malinois": 1.0,
+          "briard": 0.9808,
+          "kelpie": 0.9623,
+          "komondor": 1.0,
+          "Old English sheepdog": 0.9855,
+          "Shetland sheepdog": 0.9298,
+          "collie": 0.6792,
+          "Border collie": 1.0,
+          "Bouvier des Flandres": 0.96,
+          "Rottweiler": 0.9808,
+          "German shepherd": 0.9231,
+          "Doberman": 0.98,
+          "miniature pinscher": 0.9881,
+          "Greater Swiss Mountain dog": 0.9559,
+          "Bernese mountain dog": 0.9831,
+          "Appenzeller": 0.9216,
+          "EntleBucher": 0.902,
+          "boxer": 0.9412,
+          "bull mastiff": 1.0,
+          "Tibetan mastiff": 0.9423,
+          "French bulldog": 1.0,
+          "Great Dane": 0.9643,
+          "Saint Bernard": 1.0,
+          "Eskimo dog": 0.46,
+          "malamute": 0.9103,
+          "Siberian husky": 0.8152,
+          "affenpinscher": 1.0,
+          "basenji": 0.9725,
+          "pug": 0.99,
+          "Leonberg": 1.0,
+          "Newfoundland": 0.9789,
+          "Great Pyrenees": 0.9558,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.9832,
+          "chow": 1.0,
+          "keeshond": 1.0,
+          "Brabancon griffon": 0.9811,
+          "Pembroke": 1.0,
+          "Cardigan": 0.9091,
+          "toy poodle": 0.9412,
+          "miniature poodle": 0.7818,
+          "standard poodle": 0.9661,
+          "Mexican hairless": 1.0,
+          "dingo": 0.9286,
+          "dhole": 0.96,
+          "African hunting dog": 1.0
+        },
+        "hardest": [
+          [
+            "Eskimo dog",
+            0.46
+          ],
+          [
+            "collie",
+            0.6792
+          ],
+          [
+            "English foxhound",
+            0.7368
+          ],
+          [
+            "American Staffordshire terrier",
+            0.75
+          ],
+          [
+            "miniature poodle",
+            0.7818
+          ],
+          [
+            "Siberian husky",
+            0.8152
+          ],
+          [
+            "redbone",
+            0.8333
+          ],
+          [
+            "silky terrier",
+            0.8554
+          ],
+          [
+            "Lhasa",
+            0.8605
+          ],
+          [
+            "standard schnauzer",
+            0.8727
+          ]
+        ],
+        "easiest": [
+          [
+            "African hunting dog",
+            1.0
+          ],
+          [
+            "Leonberg",
+            1.0
+          ],
+          [
+            "komondor",
+            1.0
+          ],
+          [
+            "Welsh springer spaniel",
+            1.0
+          ],
+          [
+            "Border collie",
+            1.0
+          ],
+          [
+            "Gordon setter",
+            1.0
+          ],
+          [
+            "Irish setter",
+            1.0
+          ],
+          [
+            "English setter",
+            1.0
+          ],
+          [
+            "miniature schnauzer",
+            1.0
+          ],
+          [
+            "bull mastiff",
+            1.0
+          ]
+        ],
+        "confused_pairs": [
+          {
+            "true": "Eskimo dog",
+            "predicted": "Siberian husky",
+            "count": 18,
+            "share": 0.36
+          },
+          {
+            "true": "American Staffordshire terrier",
+            "predicted": "Staffordshire bullterrier",
+            "count": 15,
+            "share": 0.2344
+          },
+          {
+            "true": "collie",
+            "predicted": "Border collie",
+            "count": 13,
+            "share": 0.2453
+          },
+          {
+            "true": "Siberian husky",
+            "predicted": "Eskimo dog",
+            "count": 12,
+            "share": 0.1304
+          },
+          {
+            "true": "English foxhound",
+            "predicted": "Walker hound",
+            "count": 12,
+            "share": 0.2105
+          },
+          {
+            "true": "Scottish deerhound",
+            "predicted": "Irish wolfhound",
+            "count": 9,
+            "share": 0.0682
+          },
+          {
+            "true": "miniature poodle",
+            "predicted": "toy poodle",
+            "count": 8,
+            "share": 0.1455
+          },
+          {
+            "true": "EntleBucher",
+            "predicted": "Appenzeller",
+            "count": 7,
+            "share": 0.0686
+          },
+          {
+            "true": "Lhasa",
+            "predicted": "Shih-Tzu",
+            "count": 7,
+            "share": 0.0814
+          },
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 6,
+            "share": 0.1091
+          }
+        ]
+      },
+      "stanford_test_21_breeds": {
+        "photos": 1630,
+        "top1": 0.9705521472392638,
+        "top3": 0.9969325153374233
+      },
+      "oxford_test": {
+        "photos": 2086,
+        "top1": 0.9031639501438159,
+        "top3": 0.9841802492809204,
+        "top5": 0.9928092042186002,
+        "mean_confidence": 0.8648136258125305,
+        "ece": 0.03850853268846458,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 1,
+            "confidence": 0.14926263689994812,
+            "accuracy": 0.0
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 18,
+            "confidence": 0.24405500292778015,
+            "accuracy": 0.3888888888888889
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 21,
+            "confidence": 0.3552786409854889,
+            "accuracy": 0.42857142857142855
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 64,
+            "confidence": 0.45337027311325073,
+            "accuracy": 0.453125
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 118,
+            "confidence": 0.5522427558898926,
+            "accuracy": 0.6101694915254238
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 119,
+            "confidence": 0.6515141129493713,
+            "accuracy": 0.7226890756302521
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 151,
+            "confidence": 0.7555328011512756,
+            "accuracy": 0.8145695364238411
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 265,
+            "confidence": 0.8572493195533752,
+            "accuracy": 0.9132075471698113
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 1329,
+            "confidence": 0.9624010324478149,
+            "accuracy": 0.9902182091798345
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.94,
+          "Japanese spaniel": 0.85,
+          "basset": 0.96,
+          "beagle": 0.85,
+          "Staffordshire bullterrier": 0.6854,
+          "Yorkshire terrier": 0.77,
+          "Scotch terrier": 0.8788,
+          "soft-coated wheaten terrier": 0.81,
+          "German short-haired pointer": 0.97,
+          "English setter": 0.94,
+          "cocker spaniel": 0.83,
+          "miniature pinscher": 0.85,
+          "boxer": 0.9495,
+          "Saint Bernard": 0.98,
+          "pug": 0.98,
+          "Leonberg": 0.96,
+          "Newfoundland": 0.9,
+          "Great Pyrenees": 0.89,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.97,
+          "keeshond": 0.9798
+        },
+        "hardest": [
+          [
+            "Staffordshire bullterrier",
+            0.6854
+          ],
+          [
+            "Yorkshire terrier",
+            0.77
+          ],
+          [
+            "soft-coated wheaten terrier",
+            0.81
+          ],
+          [
+            "cocker spaniel",
+            0.83
+          ],
+          [
+            "Japanese spaniel",
+            0.85
+          ],
+          [
+            "miniature pinscher",
+            0.85
+          ],
+          [
+            "beagle",
+            0.85
+          ],
+          [
+            "Scotch terrier",
+            0.8788
+          ],
+          [
+            "Great Pyrenees",
+            0.89
+          ],
+          [
+            "Newfoundland",
+            0.9
+          ]
+        ],
+        "easiest": [],
+        "confused_pairs": [
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 25,
+            "share": 0.2809
+          },
+          {
+            "true": "Japanese spaniel",
+            "predicted": "Pekinese",
+            "count": 13,
+            "share": 0.13
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "silky terrier",
+            "count": 13,
+            "share": 0.13
+          },
+          {
+            "true": "beagle",
+            "predicted": "Walker hound",
+            "count": 12,
+            "share": 0.12
+          },
+          {
+            "true": "Great Pyrenees",
+            "predicted": "golden retriever",
+            "count": 7,
+            "share": 0.07
+          },
+          {
+            "true": "soft-coated wheaten terrier",
+            "predicted": "Tibetan terrier",
+            "count": 6,
+            "share": 0.06
+          },
+          {
+            "true": "cocker spaniel",
+            "predicted": "English springer",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "Australian terrier",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "cocker spaniel",
+            "predicted": "Irish setter",
+            "count": 4,
+            "share": 0.04
+          },
+          {
+            "true": "miniature pinscher",
+            "predicted": "Rhodesian ridgeback",
+            "count": 4,
+            "share": 0.04
+          }
+        ]
+      }
+    },
+    "stage5_head": {
+      "stanford_test": {
+        "photos": 8580,
+        "top1": 0.9497668997668998,
+        "top3": 0.9956876456876457,
+        "top5": 0.9984848484848485,
+        "mean_confidence": 0.9217228889465332,
+        "ece": 0.028044013432411613,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 2,
+            "confidence": 0.14691105484962463,
+            "accuracy": 0.5
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 9,
+            "confidence": 0.26642754673957825,
+            "accuracy": 0.3333333333333333
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 52,
+            "confidence": 0.35986313223838806,
+            "accuracy": 0.5192307692307693
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 131,
+            "confidence": 0.4624861180782318,
+            "accuracy": 0.5419847328244275
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 270,
+            "confidence": 0.5498908162117004,
+            "accuracy": 0.6518518518518519
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 310,
+            "confidence": 0.6526691913604736,
+            "accuracy": 0.7258064516129032
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 415,
+            "confidence": 0.7524253726005554,
+            "accuracy": 0.8457831325301205
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 694,
+            "confidence": 0.857742190361023,
+            "accuracy": 0.9221902017291066
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 6697,
+            "confidence": 0.9807472825050354,
+            "accuracy": 0.9937285351649993
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.9615,
+          "Japanese spaniel": 0.9294,
+          "Maltese dog": 0.9342,
+          "Pekinese": 0.9388,
+          "Shih-Tzu": 0.9298,
+          "Blenheim spaniel": 0.9659,
+          "papillon": 0.9792,
+          "toy terrier": 0.9583,
+          "Rhodesian ridgeback": 0.9444,
+          "Afghan hound": 0.9928,
+          "basset": 0.9867,
+          "beagle": 0.9263,
+          "bloodhound": 0.977,
+          "bluetick": 0.9577,
+          "black-and-tan coonhound": 0.9661,
+          "Walker hound": 0.8868,
+          "English foxhound": 0.8421,
+          "redbone": 0.9167,
+          "borzoi": 1.0,
+          "Irish wolfhound": 0.9237,
+          "Italian greyhound": 0.9634,
+          "whippet": 0.931,
+          "Ibizan hound": 0.9886,
+          "Norwegian elkhound": 0.9792,
+          "otterhound": 0.9804,
+          "Saluki": 0.97,
+          "Scottish deerhound": 0.9394,
+          "Weimaraner": 1.0,
+          "Staffordshire bullterrier": 0.8364,
+          "American Staffordshire terrier": 0.8438,
+          "Bedlington terrier": 1.0,
+          "Border terrier": 0.9861,
+          "Kerry blue terrier": 0.9494,
+          "Irish terrier": 0.9855,
+          "Norfolk terrier": 0.9444,
+          "Norwich terrier": 0.8588,
+          "Yorkshire terrier": 0.9375,
+          "wire-haired fox terrier": 0.8772,
+          "Lakeland terrier": 0.9794,
+          "Sealyham terrier": 0.9902,
+          "Airedale": 0.9804,
+          "cairn": 0.9794,
+          "Australian terrier": 0.875,
+          "Dandie Dinmont": 0.9625,
+          "Boston bull": 0.939,
+          "miniature schnauzer": 0.963,
+          "giant schnauzer": 0.9298,
+          "standard schnauzer": 0.8727,
+          "Scotch terrier": 0.931,
+          "Tibetan terrier": 0.9245,
+          "silky terrier": 0.8554,
+          "soft-coated wheaten terrier": 0.9643,
+          "West Highland white terrier": 0.971,
+          "Lhasa": 0.8953,
+          "flat-coated retriever": 0.9808,
+          "curly-coated retriever": 0.9608,
+          "golden retriever": 0.96,
+          "Labrador retriever": 0.9577,
+          "Chesapeake Bay retriever": 0.9851,
+          "German short-haired pointer": 0.9615,
+          "vizsla": 0.963,
+          "English setter": 1.0,
+          "Irish setter": 1.0,
+          "Gordon setter": 1.0,
+          "Brittany spaniel": 0.9808,
+          "clumber": 0.98,
+          "English springer": 0.9661,
+          "Welsh springer spaniel": 0.98,
+          "cocker spaniel": 0.9831,
+          "Sussex spaniel": 0.9216,
+          "Irish water spaniel": 0.98,
+          "kuvasz": 0.94,
+          "schipperke": 0.9815,
+          "groenendael": 1.0,
+          "malinois": 1.0,
+          "briard": 1.0,
+          "kelpie": 0.9434,
+          "komondor": 1.0,
+          "Old English sheepdog": 0.9855,
+          "Shetland sheepdog": 0.9649,
+          "collie": 0.6981,
+          "Border collie": 0.98,
+          "Bouvier des Flandres": 0.98,
+          "Rottweiler": 0.9423,
+          "German shepherd": 0.9231,
+          "Doberman": 0.98,
+          "miniature pinscher": 0.9643,
+          "Greater Swiss Mountain dog": 0.9559,
+          "Bernese mountain dog": 0.9746,
+          "Appenzeller": 0.9412,
+          "EntleBucher": 0.9216,
+          "boxer": 0.9216,
+          "bull mastiff": 1.0,
+          "Tibetan mastiff": 0.9615,
+          "French bulldog": 1.0,
+          "Great Dane": 0.9643,
+          "Saint Bernard": 0.9857,
+          "Eskimo dog": 0.66,
+          "malamute": 0.8718,
+          "Siberian husky": 0.7065,
+          "affenpinscher": 1.0,
+          "basenji": 0.9725,
+          "pug": 0.98,
+          "Leonberg": 1.0,
+          "Newfoundland": 0.9684,
+          "Great Pyrenees": 0.9204,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.9916,
+          "chow": 1.0,
+          "keeshond": 1.0,
+          "Brabancon griffon": 0.9623,
+          "Pembroke": 0.963,
+          "Cardigan": 0.9273,
+          "toy poodle": 0.8824,
+          "miniature poodle": 0.8545,
+          "standard poodle": 0.9661,
+          "Mexican hairless": 1.0,
+          "dingo": 0.8929,
+          "dhole": 0.98,
+          "African hunting dog": 1.0
+        },
+        "hardest": [
+          [
+            "Eskimo dog",
+            0.66
+          ],
+          [
+            "collie",
+            0.6981
+          ],
+          [
+            "Siberian husky",
+            0.7065
+          ],
+          [
+            "Staffordshire bullterrier",
+            0.8364
+          ],
+          [
+            "English foxhound",
+            0.8421
+          ],
+          [
+            "American Staffordshire terrier",
+            0.8438
+          ],
+          [
+            "miniature poodle",
+            0.8545
+          ],
+          [
+            "silky terrier",
+            0.8554
+          ],
+          [
+            "Norwich terrier",
+            0.8588
+          ],
+          [
+            "malamute",
+            0.8718
+          ]
+        ],
+        "easiest": [
+          [
+            "African hunting dog",
+            1.0
+          ],
+          [
+            "Leonberg",
+            1.0
+          ],
+          [
+            "Gordon setter",
+            1.0
+          ],
+          [
+            "groenendael",
+            1.0
+          ],
+          [
+            "malinois",
+            1.0
+          ],
+          [
+            "briard",
+            1.0
+          ],
+          [
+            "komondor",
+            1.0
+          ],
+          [
+            "Bedlington terrier",
+            1.0
+          ],
+          [
+            "Weimaraner",
+            1.0
+          ],
+          [
+            "English setter",
+            1.0
+          ]
+        ],
+        "confused_pairs": [
+          {
+            "true": "Siberian husky",
+            "predicted": "Eskimo dog",
+            "count": 24,
+            "share": 0.2609
+          },
+          {
+            "true": "collie",
+            "predicted": "Border collie",
+            "count": 11,
+            "share": 0.2075
+          },
+          {
+            "true": "Eskimo dog",
+            "predicted": "Siberian husky",
+            "count": 11,
+            "share": 0.22
+          },
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 9,
+            "share": 0.1636
+          },
+          {
+            "true": "American Staffordshire terrier",
+            "predicted": "Staffordshire bullterrier",
+            "count": 8,
+            "share": 0.125
+          },
+          {
+            "true": "Irish wolfhound",
+            "predicted": "Scottish deerhound",
+            "count": 8,
+            "share": 0.0678
+          },
+          {
+            "true": "English foxhound",
+            "predicted": "Walker hound",
+            "count": 8,
+            "share": 0.1404
+          },
+          {
+            "true": "Lhasa",
+            "predicted": "Shih-Tzu",
+            "count": 7,
+            "share": 0.0814
+          },
+          {
+            "true": "silky terrier",
+            "predicted": "Yorkshire terrier",
+            "count": 6,
+            "share": 0.0723
+          },
+          {
+            "true": "Scottish deerhound",
+            "predicted": "Irish wolfhound",
+            "count": 6,
+            "share": 0.0455
+          }
+        ]
+      },
+      "stanford_test_21_breeds": {
+        "photos": 1630,
+        "top1": 0.9625766871165644,
+        "top3": 0.9975460122699387
+      },
+      "oxford_test": {
+        "photos": 2086,
+        "top1": 0.9007670182166826,
+        "top3": 0.9827420901246404,
+        "top5": 0.9913710450623202,
+        "mean_confidence": 0.9026628136634827,
+        "ece": 0.013822865966182464,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 2,
+            "confidence": 0.17609253525733948,
+            "accuracy": 0.0
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 14,
+            "confidence": 0.26461261510849,
+            "accuracy": 0.35714285714285715
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 16,
+            "confidence": 0.3660869598388672,
+            "accuracy": 0.5
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 48,
+            "confidence": 0.46099814772605896,
+            "accuracy": 0.5208333333333334
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 79,
+            "confidence": 0.5505261421203613,
+            "accuracy": 0.6075949367088608
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 104,
+            "confidence": 0.657486081123352,
+            "accuracy": 0.6730769230769231
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 128,
+            "confidence": 0.7521002292633057,
+            "accuracy": 0.734375
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 177,
+            "confidence": 0.8569584488868713,
+            "accuracy": 0.7853107344632768
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 1518,
+            "confidence": 0.9822739362716675,
+            "accuracy": 0.9815546772068511
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.94,
+          "Japanese spaniel": 0.87,
+          "basset": 0.95,
+          "beagle": 0.85,
+          "Staffordshire bullterrier": 0.5506,
+          "Yorkshire terrier": 0.78,
+          "Scotch terrier": 0.8889,
+          "soft-coated wheaten terrier": 0.84,
+          "German short-haired pointer": 0.96,
+          "English setter": 0.95,
+          "cocker spaniel": 0.87,
+          "miniature pinscher": 0.85,
+          "boxer": 0.9394,
+          "Saint Bernard": 0.98,
+          "pug": 0.98,
+          "Leonberg": 0.95,
+          "Newfoundland": 0.9,
+          "Great Pyrenees": 0.88,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.98,
+          "keeshond": 0.9697
+        },
+        "hardest": [
+          [
+            "Staffordshire bullterrier",
+            0.5506
+          ],
+          [
+            "Yorkshire terrier",
+            0.78
+          ],
+          [
+            "soft-coated wheaten terrier",
+            0.84
+          ],
+          [
+            "miniature pinscher",
+            0.85
+          ],
+          [
+            "beagle",
+            0.85
+          ],
+          [
+            "Japanese spaniel",
+            0.87
+          ],
+          [
+            "cocker spaniel",
+            0.87
+          ],
+          [
+            "Great Pyrenees",
+            0.88
+          ],
+          [
+            "Scotch terrier",
+            0.8889
+          ],
+          [
+            "Newfoundland",
+            0.9
+          ]
+        ],
+        "easiest": [],
+        "confused_pairs": [
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 38,
+            "share": 0.427
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "silky terrier",
+            "count": 15,
+            "share": 0.15
+          },
+          {
+            "true": "Japanese spaniel",
+            "predicted": "Pekinese",
+            "count": 12,
+            "share": 0.12
+          },
+          {
+            "true": "beagle",
+            "predicted": "Walker hound",
+            "count": 10,
+            "share": 0.1
+          },
+          {
+            "true": "Great Pyrenees",
+            "predicted": "golden retriever",
+            "count": 8,
+            "share": 0.08
+          },
+          {
+            "true": "soft-coated wheaten terrier",
+            "predicted": "Tibetan terrier",
+            "count": 6,
+            "share": 0.06
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "Australian terrier",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "miniature pinscher",
+            "predicted": "Chihuahua",
+            "count": 4,
+            "share": 0.04
+          },
+          {
+            "true": "Leonberg",
+            "predicted": "Tibetan mastiff",
+            "count": 4,
+            "share": 0.04
+          },
+          {
+            "true": "Scotch terrier",
+            "predicted": "West Highland white terrier",
+            "count": 4,
+            "share": 0.0404
+          }
+        ]
+      }
+    },
+    "stage6": {
+      "stanford_test": {
+        "photos": 8580,
+        "top1": 0.9424242424242424,
+        "top3": 0.9948717948717949,
+        "top5": 0.9987179487179487,
+        "mean_confidence": 0.923944354057312,
+        "ece": 0.018725529790688814,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 1,
+            "confidence": 0.18889208137989044,
+            "accuracy": 0.0
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 7,
+            "confidence": 0.2663958668708801,
+            "accuracy": 0.14285714285714285
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 45,
+            "confidence": 0.3590956926345825,
+            "accuracy": 0.4222222222222222
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 129,
+            "confidence": 0.4639016091823578,
+            "accuracy": 0.5348837209302325
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 291,
+            "confidence": 0.5495938062667847,
+            "accuracy": 0.5773195876288659
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 321,
+            "confidence": 0.650136411190033,
+            "accuracy": 0.7227414330218068
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 400,
+            "confidence": 0.7502852082252502,
+            "accuracy": 0.8275
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 665,
+            "confidence": 0.857065737247467,
+            "accuracy": 0.9112781954887218
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 6721,
+            "confidence": 0.9835883975028992,
+            "accuracy": 0.990923969647374
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.9808,
+          "Japanese spaniel": 0.9294,
+          "Maltese dog": 0.9605,
+          "Pekinese": 0.9388,
+          "Shih-Tzu": 0.7807,
+          "Blenheim spaniel": 1.0,
+          "papillon": 0.9896,
+          "toy terrier": 0.9167,
+          "Rhodesian ridgeback": 0.875,
+          "Afghan hound": 0.9928,
+          "basset": 0.9733,
+          "beagle": 0.9895,
+          "bloodhound": 0.908,
+          "bluetick": 0.9577,
+          "black-and-tan coonhound": 0.9661,
+          "Walker hound": 0.8302,
+          "English foxhound": 0.7544,
+          "redbone": 0.9583,
+          "borzoi": 1.0,
+          "Irish wolfhound": 0.9746,
+          "Italian greyhound": 0.9634,
+          "whippet": 0.908,
+          "Ibizan hound": 0.9773,
+          "Norwegian elkhound": 0.9896,
+          "otterhound": 0.9804,
+          "Saluki": 0.98,
+          "Scottish deerhound": 0.8864,
+          "Weimaraner": 0.9833,
+          "Staffordshire bullterrier": 0.8545,
+          "American Staffordshire terrier": 0.7969,
+          "Bedlington terrier": 1.0,
+          "Border terrier": 0.9861,
+          "Kerry blue terrier": 0.962,
+          "Irish terrier": 0.9855,
+          "Norfolk terrier": 0.8889,
+          "Norwich terrier": 0.8824,
+          "Yorkshire terrier": 0.9688,
+          "wire-haired fox terrier": 0.8596,
+          "Lakeland terrier": 0.9588,
+          "Sealyham terrier": 0.9804,
+          "Airedale": 0.9804,
+          "cairn": 0.9588,
+          "Australian terrier": 0.8438,
+          "Dandie Dinmont": 0.9625,
+          "Boston bull": 0.9512,
+          "miniature schnauzer": 0.8889,
+          "giant schnauzer": 0.9649,
+          "standard schnauzer": 0.9091,
+          "Scotch terrier": 0.9138,
+          "Tibetan terrier": 0.8679,
+          "silky terrier": 0.8193,
+          "soft-coated wheaten terrier": 0.9643,
+          "West Highland white terrier": 0.942,
+          "Lhasa": 0.9302,
+          "flat-coated retriever": 1.0,
+          "curly-coated retriever": 0.9608,
+          "golden retriever": 0.94,
+          "Labrador retriever": 0.9437,
+          "Chesapeake Bay retriever": 0.9851,
+          "German short-haired pointer": 0.9808,
+          "vizsla": 0.9815,
+          "English setter": 0.9508,
+          "Irish setter": 1.0,
+          "Gordon setter": 0.9811,
+          "Brittany spaniel": 0.9808,
+          "clumber": 0.98,
+          "English springer": 1.0,
+          "Welsh springer spaniel": 1.0,
+          "cocker spaniel": 0.9661,
+          "Sussex spaniel": 0.9216,
+          "Irish water spaniel": 0.96,
+          "kuvasz": 0.98,
+          "schipperke": 0.9815,
+          "groenendael": 1.0,
+          "malinois": 0.98,
+          "briard": 0.9808,
+          "kelpie": 0.9245,
+          "komondor": 1.0,
+          "Old English sheepdog": 0.9855,
+          "Shetland sheepdog": 0.9825,
+          "collie": 0.7358,
+          "Border collie": 0.8,
+          "Bouvier des Flandres": 0.96,
+          "Rottweiler": 0.9038,
+          "German shepherd": 0.8846,
+          "Doberman": 0.98,
+          "miniature pinscher": 0.9643,
+          "Greater Swiss Mountain dog": 0.8971,
+          "Bernese mountain dog": 0.9576,
+          "Appenzeller": 0.9608,
+          "EntleBucher": 0.9412,
+          "boxer": 0.9412,
+          "bull mastiff": 0.9821,
+          "Tibetan mastiff": 0.9423,
+          "French bulldog": 1.0,
+          "Great Dane": 0.9643,
+          "Saint Bernard": 0.9857,
+          "Eskimo dog": 0.7,
+          "malamute": 0.8846,
+          "Siberian husky": 0.6848,
+          "affenpinscher": 1.0,
+          "basenji": 0.9817,
+          "pug": 0.99,
+          "Leonberg": 1.0,
+          "Newfoundland": 0.9684,
+          "Great Pyrenees": 0.9292,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.9916,
+          "chow": 1.0,
+          "keeshond": 1.0,
+          "Brabancon griffon": 0.9811,
+          "Pembroke": 1.0,
+          "Cardigan": 0.8545,
+          "toy poodle": 0.8235,
+          "miniature poodle": 0.8182,
+          "standard poodle": 1.0,
+          "Mexican hairless": 1.0,
+          "dingo": 0.8571,
+          "dhole": 0.98,
+          "African hunting dog": 1.0
+        },
+        "hardest": [
+          [
+            "Siberian husky",
+            0.6848
+          ],
+          [
+            "Eskimo dog",
+            0.7
+          ],
+          [
+            "collie",
+            0.7358
+          ],
+          [
+            "English foxhound",
+            0.7544
+          ],
+          [
+            "Shih-Tzu",
+            0.7807
+          ],
+          [
+            "American Staffordshire terrier",
+            0.7969
+          ],
+          [
+            "Border collie",
+            0.8
+          ],
+          [
+            "miniature poodle",
+            0.8182
+          ],
+          [
+            "silky terrier",
+            0.8193
+          ],
+          [
+            "toy poodle",
+            0.8235
+          ]
+        ],
+        "easiest": [
+          [
+            "African hunting dog",
+            1.0
+          ],
+          [
+            "chow",
+            1.0
+          ],
+          [
+            "French bulldog",
+            1.0
+          ],
+          [
+            "English springer",
+            1.0
+          ],
+          [
+            "Bedlington terrier",
+            1.0
+          ],
+          [
+            "Welsh springer spaniel",
+            1.0
+          ],
+          [
+            "affenpinscher",
+            1.0
+          ],
+          [
+            "groenendael",
+            1.0
+          ],
+          [
+            "Leonberg",
+            1.0
+          ],
+          [
+            "borzoi",
+            1.0
+          ]
+        ],
+        "confused_pairs": [
+          {
+            "true": "Siberian husky",
+            "predicted": "Eskimo dog",
+            "count": 27,
+            "share": 0.2935
+          },
+          {
+            "true": "Shih-Tzu",
+            "predicted": "Lhasa",
+            "count": 19,
+            "share": 0.1667
+          },
+          {
+            "true": "Scottish deerhound",
+            "predicted": "Irish wolfhound",
+            "count": 14,
+            "share": 0.1061
+          },
+          {
+            "true": "silky terrier",
+            "predicted": "Yorkshire terrier",
+            "count": 11,
+            "share": 0.1325
+          },
+          {
+            "true": "English foxhound",
+            "predicted": "Walker hound",
+            "count": 10,
+            "share": 0.1754
+          },
+          {
+            "true": "Eskimo dog",
+            "predicted": "Siberian husky",
+            "count": 9,
+            "share": 0.18
+          },
+          {
+            "true": "Australian terrier",
+            "predicted": "Yorkshire terrier",
+            "count": 9,
+            "share": 0.0938
+          },
+          {
+            "true": "Border collie",
+            "predicted": "collie",
+            "count": 9,
+            "share": 0.18
+          },
+          {
+            "true": "American Staffordshire terrier",
+            "predicted": "Staffordshire bullterrier",
+            "count": 8,
+            "share": 0.125
+          },
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 8,
+            "share": 0.1455
+          }
+        ]
+      },
+      "stanford_test_21_breeds": {
+        "photos": 1630,
+        "top1": 0.9674846625766871,
+        "top3": 0.9957055214723927
+      },
+      "oxford_test": {
+        "photos": 2086,
+        "top1": 0.8964525407478428,
+        "top3": 0.9817833173537871,
+        "top5": 0.9913710450623202,
+        "mean_confidence": 0.9148424863815308,
+        "ece": 0.026490359655505537,
+        "calibration": [
+          {
+            "low": 0.1,
+            "high": 0.2,
+            "count": 1,
+            "confidence": 0.15028774738311768,
+            "accuracy": 0.0
+          },
+          {
+            "low": 0.2,
+            "high": 0.30000000000000004,
+            "count": 10,
+            "confidence": 0.27305692434310913,
+            "accuracy": 0.4
+          },
+          {
+            "low": 0.30000000000000004,
+            "high": 0.4,
+            "count": 19,
+            "confidence": 0.3504968583583832,
+            "accuracy": 0.3684210526315789
+          },
+          {
+            "low": 0.4,
+            "high": 0.5,
+            "count": 34,
+            "confidence": 0.45565906167030334,
+            "accuracy": 0.4117647058823529
+          },
+          {
+            "low": 0.5,
+            "high": 0.6000000000000001,
+            "count": 71,
+            "confidence": 0.5515670776367188,
+            "accuracy": 0.647887323943662
+          },
+          {
+            "low": 0.6000000000000001,
+            "high": 0.7000000000000001,
+            "count": 108,
+            "confidence": 0.6494755148887634,
+            "accuracy": 0.6481481481481481
+          },
+          {
+            "low": 0.7000000000000001,
+            "high": 0.8,
+            "count": 95,
+            "confidence": 0.7501081824302673,
+            "accuracy": 0.6736842105263158
+          },
+          {
+            "low": 0.8,
+            "high": 0.9,
+            "count": 144,
+            "confidence": 0.8557342886924744,
+            "accuracy": 0.7569444444444444
+          },
+          {
+            "low": 0.9,
+            "high": 1.0,
+            "count": 1604,
+            "confidence": 0.984749436378479,
+            "accuracy": 0.970074812967581
+          }
+        ],
+        "per_breed": {
+          "Chihuahua": 0.94,
+          "Japanese spaniel": 0.86,
+          "basset": 0.95,
+          "beagle": 0.89,
+          "Staffordshire bullterrier": 0.5393,
+          "Yorkshire terrier": 0.82,
+          "Scotch terrier": 0.8586,
+          "soft-coated wheaten terrier": 0.82,
+          "German short-haired pointer": 0.97,
+          "English setter": 0.89,
+          "cocker spaniel": 0.79,
+          "miniature pinscher": 0.85,
+          "boxer": 0.9596,
+          "Saint Bernard": 0.99,
+          "pug": 0.98,
+          "Leonberg": 0.96,
+          "Newfoundland": 0.89,
+          "Great Pyrenees": 0.88,
+          "Samoyed": 1.0,
+          "Pomeranian": 0.98,
+          "keeshond": 0.9697
+        },
+        "hardest": [
+          [
+            "Staffordshire bullterrier",
+            0.5393
+          ],
+          [
+            "cocker spaniel",
+            0.79
+          ],
+          [
+            "soft-coated wheaten terrier",
+            0.82
+          ],
+          [
+            "Yorkshire terrier",
+            0.82
+          ],
+          [
+            "miniature pinscher",
+            0.85
+          ],
+          [
+            "Scotch terrier",
+            0.8586
+          ],
+          [
+            "Japanese spaniel",
+            0.86
+          ],
+          [
+            "Great Pyrenees",
+            0.88
+          ],
+          [
+            "Newfoundland",
+            0.89
+          ],
+          [
+            "English setter",
+            0.89
+          ]
+        ],
+        "easiest": [],
+        "confused_pairs": [
+          {
+            "true": "Staffordshire bullterrier",
+            "predicted": "American Staffordshire terrier",
+            "count": 36,
+            "share": 0.4045
+          },
+          {
+            "true": "Yorkshire terrier",
+            "predicted": "silky terrier",
+            "count": 17,
+            "share": 0.17
+          },
+          {
+            "true": "Japanese spaniel",
+            "predicted": "Pekinese",
+            "count": 12,
+            "share": 0.12
+          },
+          {
+            "true": "English setter",
+            "predicted": "English springer",
+            "count": 8,
+            "share": 0.08
+          },
+          {
+            "true": "beagle",
+            "predicted": "Walker hound",
+            "count": 8,
+            "share": 0.08
+          },
+          {
+            "true": "Great Pyrenees",
+            "predicted": "golden retriever",
+            "count": 7,
+            "share": 0.07
+          },
+          {
+            "true": "cocker spaniel",
+            "predicted": "English springer",
+            "count": 7,
+            "share": 0.07
+          },
+          {
+            "true": "cocker spaniel",
+            "predicted": "Irish setter",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "Newfoundland",
+            "predicted": "flat-coated retriever",
+            "count": 5,
+            "share": 0.05
+          },
+          {
+            "true": "soft-coated wheaten terrier",
+            "predicted": "Tibetan terrier",
+            "count": 5,
+            "share": 0.05
+          }
+        ]
+      }
+    }
+  },
+  "pairs": [
+    {
+      "a": "Eskimo dog",
+      "b": "Siberian husky",
+      "imagenet_head": {
+        "a_right": 0.46,
+        "b_right": 0.8152,
+        "a_as_b": 18,
+        "b_as_a": 12,
+        "pair_right": 0.6901
+      },
+      "stage5_head": {
+        "a_right": 0.66,
+        "b_right": 0.7065,
+        "a_as_b": 11,
+        "b_as_a": 24,
+        "pair_right": 0.6901
+      },
+      "stage6": {
+        "a_right": 0.7,
+        "b_right": 0.6848,
+        "a_as_b": 9,
+        "b_as_a": 27,
+        "pair_right": 0.6901
+      }
+    },
+    {
+      "a": "collie",
+      "b": "Border collie",
+      "imagenet_head": {
+        "a_right": 0.6792,
+        "b_right": 1.0,
+        "a_as_b": 13,
+        "b_as_a": 0,
+        "pair_right": 0.835
+      },
+      "stage5_head": {
+        "a_right": 0.6981,
+        "b_right": 0.98,
+        "a_as_b": 11,
+        "b_as_a": 1,
+        "pair_right": 0.835
+      },
+      "stage6": {
+        "a_right": 0.7358,
+        "b_right": 0.8,
+        "a_as_b": 6,
+        "b_as_a": 9,
+        "pair_right": 0.767
+      }
+    },
+    {
+      "a": "American Staffordshire terrier",
+      "b": "Staffordshire bullterrier",
+      "imagenet_head": {
+        "a_right": 0.75,
+        "b_right": 0.8909,
+        "a_as_b": 15,
+        "b_as_a": 6,
+        "pair_right": 0.8151
+      },
+      "stage5_head": {
+        "a_right": 0.8438,
+        "b_right": 0.8364,
+        "a_as_b": 8,
+        "b_as_a": 9,
+        "pair_right": 0.8403
+      },
+      "stage6": {
+        "a_right": 0.7969,
+        "b_right": 0.8545,
+        "a_as_b": 8,
+        "b_as_a": 8,
+        "pair_right": 0.8235
+      }
+    },
+    {
+      "a": "English foxhound",
+      "b": "Walker hound",
+      "imagenet_head": {
+        "a_right": 0.7368,
+        "b_right": 0.9434,
+        "a_as_b": 12,
+        "b_as_a": 1,
+        "pair_right": 0.8364
+      },
+      "stage5_head": {
+        "a_right": 0.8421,
+        "b_right": 0.8868,
+        "a_as_b": 8,
+        "b_as_a": 3,
+        "pair_right": 0.8636
+      },
+      "stage6": {
+        "a_right": 0.7544,
+        "b_right": 0.8302,
+        "a_as_b": 10,
+        "b_as_a": 2,
+        "pair_right": 0.7909
+      }
+    },
+    {
+      "a": "miniature poodle",
+      "b": "toy poodle",
+      "imagenet_head": {
+        "a_right": 0.7818,
+        "b_right": 0.9412,
+        "a_as_b": 8,
+        "b_as_a": 1,
+        "pair_right": 0.8585
+      },
+      "stage5_head": {
+        "a_right": 0.8545,
+        "b_right": 0.8824,
+        "a_as_b": 5,
+        "b_as_a": 4,
+        "pair_right": 0.8679
+      },
+      "stage6": {
+        "a_right": 0.8182,
+        "b_right": 0.8235,
+        "a_as_b": 6,
+        "b_as_a": 7,
+        "pair_right": 0.8208
+      }
+    },
+    {
+      "a": "Siberian husky",
+      "b": "malamute",
+      "imagenet_head": {
+        "a_right": 0.8152,
+        "b_right": 0.9103,
+        "a_as_b": 5,
+        "b_as_a": 6,
+        "pair_right": 0.8588
+      },
+      "stage5_head": {
+        "a_right": 0.7065,
+        "b_right": 0.8718,
+        "a_as_b": 3,
+        "b_as_a": 4,
+        "pair_right": 0.7824
+      },
+      "stage6": {
+        "a_right": 0.6848,
+        "b_right": 0.8846,
+        "a_as_b": 2,
+        "b_as_a": 3,
+        "pair_right": 0.7765
+      }
+    }
+  ],
+  "oxford_fixed": 30,
+  "oxford_broken": 44,
+  "examples": [
+    {
+      "path": "data/oxford-iiit-pet/images/pomeranian_35.jpg",
+      "note": "fixed"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/scottish_terrier_98.jpg",
+      "note": "fixed"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/yorkshire_terrier_43.jpg",
+      "note": "fixed"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/wheaten_terrier_45.jpg",
+      "note": "fixed"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/basset_hound_192.jpg",
+      "note": "broken"
+    },
+    {
+      "path": "data/oxford-iiit-pet/images/english_setter_4.jpg",
+      "note": "broken"
+    }
+  ],
+  "thresholds": {
+    "dog": 0.42,
+    "breed": 0.85,
+    "test": {
+      "photos": {
+        "dog": 2486,
+        "cat": 1183,
+        "food": 75
+      },
+      "dogs_accepted": 0.9751,
+      "cats_rejected": 0.9569,
+      "food_rejected": 1.0,
+      "breed_top1_accuracy_all_dogs": 0.8965,
+      "breed_top3_accuracy_all_dogs": 0.9818,
+      "dogs_named_green": 0.8097,
+      "green_accuracy": 0.9602,
+      "yellow_true_breed_in_top3": 0.9444
+    }
+  },
+  "ship_rule": {
+    "min_oxford_gain": 0.01,
+    "oxford_gain": -0.006711409395973145,
+    "green_needed": 0.8736,
+    "green": 0.8097,
+    "ship": false
+  }
+}

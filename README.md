@@ -30,7 +30,7 @@ uv run pytest             # run the tests
 | 3 | "I don't see a dog" for cats, cars, ... and "not sure which breed" | Measured thresholds, the two kinds of mistakes, out-of-distribution input | ✅ done, see [README_stage3.md](README_stage3.md) |
 | 4 | Model report: accuracy on a Stanford Dogs test set | Datasets, DataLoaders, evaluation, calibration, leakage | ✅ done, see [README_stage4.md](README_stage4.md) |
 | 5 | Our own head next to ImageNet's, and an honest comparison | Transfer learning, caching features, the training loop, validation | ✅ done (not shipped), see [README_stage5.md](README_stage5.md) |
-| 6 | "Commonly confused" breeds with examples | Error analysis, fine-tuning more layers | |
+| 6 | Fine-tuned model next to ImageNet's, with a look-alike error analysis | Fine-tuning, data augmentation, a ship rule set in advance, when fine-tuning pays off | ✅ done (not shipped), see [README_stage6.md](README_stage6.md) |
 | 7 | Heatmap of where the model looked | Explainability (Grad-CAM) | |
 | 8 | "Dogs that look like yours" | Embeddings, similarity search | |
 | 9 | The app online | Deployment (Hugging Face Space) | |
@@ -45,10 +45,10 @@ tests/                    the contract every predictor must pass, plus app check
 README_stageN.md          what each stage adds and the concepts behind it
 dogbreeds/data.py         datasets: Stanford Dogs, Oxford Pets dogs, your own photos
 dogbreeds/evaluate.py     the metrics (top-k, per breed, confusions, calibration)
-dogbreeds/finetune.py     training our own head on a frozen backbone (stage 5)
+dogbreeds/finetune.py     training: our own head (stage 5), fine-tuning the last blocks (stage 6)
 scripts/                  measurements that produce config/, reports/ and docs/
 reports/                  model reports (stage 4: the baseline to beat)
-models/                   trained weights (stage 5's head; not in git, made by scripts/)
+models/                   trained weights (stages 5 and 6; not in git, made by scripts/)
 config/, docs/            measured settings the app reads, and their plots
 data/                     downloaded datasets (not in git)
 ```

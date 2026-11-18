@@ -183,3 +183,128 @@ def load_head(path: Path) -> tuple[BreedHead, list[str], dict]:
     head = BreedHead(in_features=w.shape[1], n_breeds=w.shape[0])
     head.load_state_dict(saved["state_dict"])
     return head.eval(), saved["breeds"], saved["info"]
+
+
+# ================================================================ stage 6: unfreeze the last layers
+#
+# Stage 5 showed that a new head on FROZEN features can't do better: both heads read the
+# same 1,408 numbers. In stage 6 the last part of the backbone is trained too, so the
+# features themselves can adapt to telling dog breeds apart.
+#
+#   photo -> features[0..6] (frozen) -> features[7..8] (TRAINED) -> avgpool -> our head (TRAINED)
+#
+# Because the features now change during training, we can't cache them. Every epoch runs
+# real photos through the model, so we can also use data augmentation.
+
+def train_transform(weights):
+    """Data augmentation: every epoch, each photo is randomly cropped, flipped and recoloured a little.
+
+    The model never sees exactly the same picture twice, so it can't just memorise the
+    training photos. Size and normalisation match the pre-trained model's own transform.
+    """
+    from torchvision import transforms as T
+    eval_t = weights.transforms()
+    size = eval_t.crop_size[0]
+    return T.Compose([
+        T.RandomResizedCrop(size, scale=(0.35, 1.0), interpolation=eval_t.interpolation),  # a random part, 35-100% of the photo
+        T.RandomHorizontalFlip(),                                                           # a dog facing left is still the same breed
+        T.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2),                        # different light and cameras
+        T.ToTensor(),
+        T.Normalize(eval_t.mean, eval_t.std),
+    ])
+
+
+class PartlyFrozen(nn.Module):
+    """An EfficientNet with its first blocks frozen, its last blocks trainable, and our head on top."""
+
+    def __init__(self, model: nn.Module, first_trained_block: int, head: nn.Module):
+        super().__init__()
+        self.first_trained_block = first_trained_block
+        self.frozen = model.features[:first_trained_block]
+        self.tuned = model.features[first_trained_block:]
+        self.avgpool = model.avgpool
+        self.head = head
+        for p in self.frozen.parameters():
+            p.requires_grad = False      # no gradients: these weights never change
+
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
+        with torch.no_grad():            # the frozen part needs no backpropagation: saves time and memory
+            x = self.frozen(x)
+        return self.head(torch.flatten(self.avgpool(self.tuned(x)), 1))
+
+    def train(self, mode: bool = True):
+        """Only the head's dropout switches to training behaviour. The backbone stays in eval mode,
+        so BatchNorm keeps ImageNet's statistics (our batches of 32 are too small to estimate new ones)."""
+        super().train(False)
+        self.head.train(mode)
+        return self
+
+    def trained_state(self) -> dict:
+        """Only what changed: the tuned blocks and the head (the frozen part is plain ImageNet)."""
+        return {"tuned": {k: v.detach().cpu().clone() for k, v in self.tuned.state_dict().items()},
+                "head": {k: v.detach().cpu().clone() for k, v in self.head.state_dict().items()}}
+
+    def load_trained_state(self, state: dict) -> None:
+        self.tuned.load_state_dict(state["tuned"])
+        self.head.load_state_dict(state["head"])
+
+
+def predict_photos(model: nn.Module, dataset, device: str, batch_size: int = 32) -> tuple[np.ndarray, np.ndarray]:
+    """Breed probabilities [N, 120] and labels [N] for a dataset of photos."""
+    loader = DataLoader(dataset, batch_size=batch_size, num_workers=0)
+    model.to(device).eval()
+    probs, labels = [], []
+    with torch.inference_mode():
+        for x, y in loader:
+            probs.append(torch.softmax(model(x.to(device)), dim=1).cpu())
+            labels.append(y)
+    return torch.cat(probs).numpy(), torch.cat(labels).numpy()
+
+
+def train_partly_frozen(model: PartlyFrozen, train_ds, val_ds, device: str, epochs: int, lr: float,
+                        batch_size: int = 32, weight_decay: float = 1e-4, seed: int = 0, on_epoch=None):
+    """The same training loop as stage 5, now on photos instead of cached features.
+
+    Returns (best_state, history, best_epoch); best = lowest validation loss (early stopping).
+    on_epoch(epoch, state, history) is called after every epoch, e.g. to save a checkpoint.
+    """
+    torch.manual_seed(seed)
+    model.to(device)
+    optimizer = torch.optim.AdamW([p for p in model.parameters() if p.requires_grad], lr=lr, weight_decay=weight_decay)
+    loss_fn = nn.CrossEntropyLoss()
+    loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=0)
+
+    def validate():
+        probs, labels = predict_photos(model, val_ds, device, batch_size)
+        p = torch.as_tensor(probs).clamp_min(1e-12)
+        loss = nn.functional.nll_loss(p.log(), torch.as_tensor(labels)).item()
+        return loss, float((probs.argmax(1) == labels).mean())
+
+    val_loss, val_acc = validate()
+    history = [asdict(Epoch(0, float("nan"), val_loss, val_acc))]
+    print(f"  epoch  0: val loss {val_loss:.3f}, val accuracy {val_acc:.1%}", flush=True)
+    best_loss, best_epoch, best_state = val_loss, 0, model.trained_state()
+
+    for epoch in range(1, epochs + 1):
+        model.train()
+        total, seen = 0.0, 0
+        for i, (x, y) in enumerate(loader):
+            x, y = x.to(device), y.to(device)
+            loss = loss_fn(model(x), y)            # 1-2. forward pass and loss
+            optimizer.zero_grad()                  # 3. clear old gradients
+            loss.backward()                        # 4. backpropagation (through the tuned blocks and head only)
+            optimizer.step()                       # 5. nudge the trainable weights
+            total += loss.item() * len(y)
+            seen += len(y)
+            if i % 50 == 0:
+                print(f"    epoch {epoch}: {seen:>6} / {len(train_ds)} photos, train loss so far {total / seen:.3f}",
+                      flush=True)
+        val_loss, val_acc = validate()
+        history.append(asdict(Epoch(epoch, total / seen, val_loss, val_acc)))
+        print(f"  epoch {epoch:2d}: train loss {total / seen:.3f}, val loss {val_loss:.3f}, "
+              f"val accuracy {val_acc:.1%}", flush=True)
+        if val_loss < best_loss:
+            best_loss, best_epoch, best_state = val_loss, epoch, model.trained_state()
+        if on_epoch:
+            on_epoch(epoch, best_state, history, best_epoch)
+    return best_state, history, best_epoch

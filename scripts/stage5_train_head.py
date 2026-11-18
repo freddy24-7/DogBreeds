@@ -148,7 +148,7 @@ def plot_training(experiments, chosen_key, path):
     plt.close(fig)
 
 
-def plot_breed_changes(before: dict, after: dict, path, n=8):
+def plot_breed_changes(before: dict, after: dict, path, n=8, title="Biggest changes per breed: ImageNet's head → ours"):
     diffs = sorted(((after[b] - before[b], b) for b in before), reverse=True)
     rows = [d for d in diffs[:n] if d[0] > 0] + [d for d in diffs[-n:] if d[0] < 0]
     rows = rows[::-1]   # biggest gain at the top
@@ -164,7 +164,7 @@ def plot_breed_changes(before: dict, after: dict, path, n=8):
     lim = max(abs(v) for v in vals) * 1.6
     ax.set_xlim(-lim, lim)
     ax.set_xlabel("change in top-1 accuracy (percentage points), Stanford Dogs test", color=INK_2)
-    ax.set_title("Biggest changes per breed: ImageNet's head → ours", loc="left", color=INK)
+    ax.set_title(title, loc="left", color=INK)
     ax.tick_params(axis="y", length=0)
     fig.tight_layout()
     fig.savefig(path, dpi=130, facecolor=SURFACE)

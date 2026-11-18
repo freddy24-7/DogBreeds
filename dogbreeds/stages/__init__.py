@@ -9,6 +9,6 @@ Every stage module has:
 
 To add a stage: write stageN.py with these three and add it to STAGES.
 """
-from dogbreeds.stages import stage1, stage2, stage3, stage4, stage5
+from dogbreeds.stages import stage1, stage2, stage3, stage4, stage5, stage6
 
-STAGES = [stage1, stage2, stage3, stage4, stage5]
+STAGES = [stage1, stage2, stage3, stage4, stage5, stage6]

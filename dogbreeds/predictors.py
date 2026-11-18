@@ -179,13 +179,12 @@ class FineTunedPredictor:
         Our head gives P(breed | dog). To fit the stage 3 format, where breed probabilities
         are out of all 1000 classes, we multiply by the dog share: P(breed) = P(dog) x P(breed | dog).
         """
-        from dogbreeds.finetune import backbone
         start = time.perf_counter()
         x = self.base.weights.transforms()(image.convert("RGB")).unsqueeze(0)
         with torch.inference_mode():
-            features = backbone(self.base.model, x)
-            imagenet_probs = torch.softmax(self.base.model.classifier(features)[0], dim=0)
-            our_probs = torch.softmax(self.head(features)[0], dim=0)
+            imagenet_logits, our_logits = self._logits(x)
+            imagenet_probs = torch.softmax(imagenet_logits[0], dim=0)
+            our_probs = torch.softmax(our_logits[0], dim=0)
         seconds = time.perf_counter() - start
 
         dog_probs = imagenet_probs[DOG_CLASSES.start:DOG_CLASSES.stop]
@@ -200,6 +199,12 @@ class FineTunedPredictor:
         return {"imagenet": ImageNetAnalysis(theirs, dog_share, imagenet_top, seconds),
                 "ours": ImageNetAnalysis(ours, dog_share, imagenet_top, seconds)}
 
+    def _logits(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        """(ImageNet's 1000 scores, our 120 scores) from one pass through the shared backbone."""
+        from dogbreeds.finetune import backbone
+        features = backbone(self.base.model, x)
+        return self.base.model.classifier(features), self.head(features)
+
     def analyse(self, image: Image.Image, top_k: int = 3) -> ImageNetAnalysis:
         return self.compare(image, top_k)["ours"]
 
@@ -211,8 +216,53 @@ class FineTunedPredictor:
 
 FINETUNED_B2 = FineTunedPredictor(FINETUNED_NAME, EFFNET_B2, HEAD_FILE)
 
+# --------------------------------------------------------------------------
+# Stage 6: the last backbone blocks are trained too (see FineTuned6Predictor below).
+# --------------------------------------------------------------------------
+
+STAGE6_FILE = Path(__file__).resolve().parent.parent / "models" / "stage6_b2.pth"
+STAGE6_NAME = "EfficientNet-B2, last blocks fine-tuned on Stanford Dogs"
+
+
+class FineTuned6Predictor(FineTunedPredictor):
+    """Stage 6: blocks 0-6 frozen (shared), blocks 7-8 and the head fine-tuned. Made by scripts/stage6_finetune.py.
+
+        photo -> blocks 0-6 (frozen, shared) -+-> ImageNet's blocks 7-8 -> ImageNet's head -> "is it a dog?"
+                                              +-> our tuned blocks 7-8  -> our head        -> "which breed?"
+
+    The shared part runs once; only the last two blocks run twice. Everything else
+    (output format, dog share, stage 3 thresholds) works exactly as in stage 5.
+    """
+
+    @property
+    def head(self):
+        if self._head is None:
+            import copy
+            from dogbreeds.finetune import BreedHead
+            saved = torch.load(self.head_file, weights_only=True)
+            self.first_block = saved["first_trained_block"]
+            self.tuned = copy.deepcopy(self.base.model.features[self.first_block:])   # start from ImageNet's blocks...
+            self.tuned.load_state_dict(saved["tuned"])                                # ...then load our trained weights
+            self.tuned.eval()
+            w = saved["head"]["linear.weight"]
+            head = BreedHead(in_features=w.shape[1], n_breeds=w.shape[0])
+            head.load_state_dict(saved["head"])
+            self._head, self.breeds, self.info = head.eval(), saved["breeds"], saved["info"]
+        return self._head
+
+    def _logits(self, x: torch.Tensor) -> tuple[torch.Tensor, torch.Tensor]:
+        m, head = self.base.model, self.head          # self.head loads the tuned blocks on first use
+        shared = m.features[:self.first_block](x)
+        theirs = m.classifier(torch.flatten(m.avgpool(m.features[self.first_block:](shared)), 1))
+        ours = head(torch.flatten(m.avgpool(self.tuned(shared)), 1))
+        return theirs, ours
+
+
+FINETUNED6_B2 = FineTuned6Predictor(STAGE6_NAME, EFFNET_B2, STAGE6_FILE)
+
 # All predictors in the app. Each stage's tab picks the ones it shows.
-# The stage 5 model only exists after scripts/stage5_train_head.py has run.
+# The stage 5 and 6 models only exist after their scripts have run.
 DUMMY = DummyPredictor()
 PREDICTORS: dict[str, Predictor] = {p.name: p for p in [DUMMY, EFFNET_B0, EFFNET_B2]
-                                    + ([FINETUNED_B2] if HEAD_FILE.exists() else [])}
+                                    + ([FINETUNED_B2] if HEAD_FILE.exists() else [])
+                                    + ([FINETUNED6_B2] if STAGE6_FILE.exists() else [])}
