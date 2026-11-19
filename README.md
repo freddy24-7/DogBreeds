@@ -12,7 +12,7 @@ predictor.predict(image, top_k=3)  ->  [("beagle", 0.82), ("basset", 0.09), ("ha
 
 The app (`app.py`) only calls this method. We start with a fake predictor and swap in real models later without touching the UI.
 
-Each stage has its own **tab** in the app, so you can compare how the app behaved at every stage. The newest stage opens first. Each stage also has its own README with the details: `README_stage2.md`, and so on. The tests in `tests/` check this contract for every predictor, so they act as regression tests for each new model.
+Each stage has its own **page** in the app: pick it with **Choose stage** in the Demo tab, so you can compare how the app behaved at every stage. The newest stage opens first. The app also has an **About** tab (the project and its results) and a **Code** tab (this repository). Each stage also has its own README with the details: `README_stage2.md`, and so on. The tests in `tests/` check this contract for every predictor, so they act as regression tests for each new model.
 
 ## Run it
 
@@ -38,7 +38,7 @@ uv run pytest             # run the tests
 ## Layout
 
 ```
-app.py                    puts the stage tabs together into one app
+app.py                    the app: header, stage picker, About and Code tabs (text in dogbreeds/about.py)
 dogbreeds/predictors.py   the Predictor interface and all predictors (models)
 dogbreeds/stages/         one module per stage; each builds its own tab
 tests/                    the contract every predictor must pass, plus app checks
