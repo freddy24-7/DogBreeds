@@ -1,0 +1,136 @@
+{
+ "model": "EfficientNet-B2 (ImageNet, 9.1M parameters)",
+ "gallery": "Stanford Dogs train (12,000 photos)",
+ "k": 10,
+ "variants": [
+  {
+   "key": "cosine",
+   "label": "cosine similarity, raw embeddings",
+   "centre": false,
+   "dims": null,
+   "precision_at_1": 0.8808333333333334,
+   "precision_at_5": 0.8694999999999999,
+   "precision_at_10": 0.8590833333333334,
+   "knn_accuracy": 0.9175,
+   "numbers_per_photo": 1408
+  },
+  {
+   "key": "centred",
+   "label": "centred, then cosine (all 1,408 numbers)",
+   "centre": true,
+   "dims": null,
+   "precision_at_1": 0.8808333333333334,
+   "precision_at_5": 0.8691666666666666,
+   "precision_at_10": 0.8608333333333333,
+   "knn_accuracy": 0.9183333333333333,
+   "numbers_per_photo": 1408
+  },
+  {
+   "key": "pca256",
+   "label": "centred, PCA to 256 numbers, cosine",
+   "centre": true,
+   "dims": 256,
+   "precision_at_1": 0.8858333333333334,
+   "precision_at_5": 0.8758333333333334,
+   "precision_at_10": 0.8655000000000002,
+   "knn_accuracy": 0.9175,
+   "numbers_per_photo": 256
+  },
+  {
+   "key": "pca128",
+   "label": "centred, PCA to 128 numbers, cosine",
+   "centre": true,
+   "dims": 128,
+   "precision_at_1": 0.8841666666666667,
+   "precision_at_5": 0.8763333333333333,
+   "precision_at_10": 0.8665000000000002,
+   "knn_accuracy": 0.9125,
+   "numbers_per_photo": 128
+  },
+  {
+   "key": "pca64",
+   "label": "centred, PCA to 64 numbers, cosine",
+   "centre": true,
+   "dims": 64,
+   "precision_at_1": 0.8816666666666667,
+   "precision_at_5": 0.8731666666666669,
+   "precision_at_10": 0.8599166666666668,
+   "knn_accuracy": 0.9091666666666667,
+   "numbers_per_photo": 64
+  }
+ ],
+ "chosen": "pca64",
+ "rule": "smallest index within 0.5% of the best precision@5",
+ "index": {
+  "file": "models/stage8_index.npz",
+  "megabytes": 6.127326,
+  "numbers_per_photo": 64,
+  "ms_per_search": 0.15967584098689258
+ },
+ "test": {
+  "stanford": {
+   "precision_at_1": 0.887062937062937,
+   "precision_at_5": 0.8744755244755245,
+   "precision_at_10": 0.8664685314685314,
+   "knn_accuracy": 0.916083916083916,
+   "imagenet_head_accuracy": 0.951048951048951
+  },
+  "stanford_no_same_shoot": {
+   "precision_at_1": 0.8857593784144713,
+   "precision_at_5": 0.872137914289183,
+   "precision_at_10": 0.863530411557606,
+   "knn_accuracy": 0.9145319898021124,
+   "photos": 8237
+  },
+  "oxford_dogs": {
+   "precision_at_1": 0.8700862895493768,
+   "precision_at_5": 0.8554170661553212,
+   "precision_at_10": 0.8500958772770854,
+   "knn_accuracy": 0.8820709491850431,
+   "imagenet_head_accuracy": 0.9031639501438159
+  }
+ },
+ "copies": {
+  "test_photos": 8580,
+  "same_shoot": 343,
+  "copies": 39,
+  "copies_with_a_different_breed": 15,
+  "train_photos_with_a_copy_in_train": 88,
+  "of_which_different_breed": 17
+ },
+ "same_shoot_threshold": 0.88,
+ "copy_threshold": 0.99,
+ "unusual": {
+  "threshold": 0.7047576308250427,
+  "groups": {
+   "dog": {
+    "photos": 2486,
+    "median_similarity": 0.9013220071792603,
+    "flagged": 0.008045052292839904
+   },
+   "cat": {
+    "photos": 1183,
+    "median_similarity": 0.5746851563453674,
+    "flagged": 0.8664412510566357
+   },
+   "food": {
+    "photos": 75,
+    "median_similarity": 0.6075439453125,
+    "flagged": 0.8
+   }
+  }
+ },
+ "images": {
+  "neighbours": "docs/stage8/neighbours.jpg",
+  "copies_with_two_breeds": "docs/stage8/copies_with_two_breeds.jpg",
+  "same_shoot": "docs/stage8/same_shoot.jpg"
+ },
+ "examples": [
+  "data/oxford-iiit-pet/images/leonberger_71.jpg",
+  "data/oxford-iiit-pet/images/basset_hound_75.jpg",
+  "data/oxford-iiit-pet/images/saint_bernard_78.jpg",
+  "data/oxford-iiit-pet/images/wheaten_terrier_96.jpg",
+  "data/oxford-iiit-pet/images/keeshond_89.jpg",
+  "data/oxford-iiit-pet/images/Abyssinian_201.jpg"
+ ]
+}
