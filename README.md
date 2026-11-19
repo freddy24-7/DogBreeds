@@ -33,7 +33,7 @@ uv run pytest             # run the tests
 | 6 | Fine-tuned model next to ImageNet's, with a look-alike error analysis | Fine-tuning, data augmentation, a ship rule set in advance, when fine-tuning pays off | ✅ done (not shipped), see [README_stage6.md](README_stage6.md) |
 | 7 | Heatmap of where the model looked, checked against pet outlines | Explainability (CAM / Grad-CAM), evaluating explanations, debugging a model | ✅ done, see [README_stage7.md](README_stage7.md) |
 | 8 | "Dogs that look like yours": the most similar of 12,000 photos, and copies found in the dataset | Embeddings, cosine similarity, vector search, PCA, k-NN, near-duplicate detection | ✅ done, see [README_stage8.md](README_stage8.md) |
-| 9 | The app online | Deployment (Hugging Face Space) | |
+| 9 | A package that runs the app on any server, with its size, speed and memory | Deployment: choosing what to ship, pinned versions, measuring what a server needs, comparing hosts | ✅ done, see [README_stage9.md](README_stage9.md) |
 
 ## Layout
 
@@ -48,7 +48,7 @@ dogbreeds/evaluate.py     the metrics (top-k, per breed, confusions, calibration
 dogbreeds/finetune.py     training: our own head (stage 5), fine-tuning the last blocks (stage 6)
 dogbreeds/heatmap.py      heatmaps of where the model looked (stage 7)
 dogbreeds/similar.py      similarity search over photo embeddings (stage 8)
-scripts/                  measurements that produce config/, reports/ and docs/
+scripts/                  measurements that produce config/, reports/ and docs/; stage9_deploy.py packages the app for a server
 reports/                  model reports (stage 4: the baseline to beat)
 models/                   trained weights (stages 5, 6) and the search index (stage 8); not in git, made by scripts/
 config/, docs/            measured settings the app reads, and their plots

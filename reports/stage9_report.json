@@ -1,0 +1,35 @@
+{
+ "bundle_megabytes": 119.844659,
+ "files": 12113,
+ "parts_megabytes": {
+  "code (app.py, dogbreeds/)": 0.11023699999999999,
+  "settings, reports and plots (config/, reports/, docs/)": 3.5676829999999997,
+  "our model files (models/)": 20.511862,
+  "example photos (50)": 4.573805,
+  "gallery thumbnails (12,000)": 90.860102
+ },
+ "gallery": {
+  "photos": 12000,
+  "original_megabytes": 456.220125,
+  "thumbnail_pixels": 192
+ },
+ "example_photos": 50,
+ "gradio": "6.32.0",
+ "not_bundled": [
+  "ImageNet weights (torchvision downloads them on first use)",
+  "the datasets (only the photos the pages show)",
+  "scripts/ and tests/"
+ ],
+ "measured": {
+  "start_seconds": 7.1,
+  "peak_memory_megabytes": 566,
+  "seconds_per_photo": {
+   "stage 3 (ImageNet EfficientNet-B2)": 0.28,
+   "stage 5 (our head)": 0.28,
+   "stage 6 (fine-tuned blocks)": 0.25,
+   "stage 7 (with the dog/not-dog check)": 0.55,
+   "stage 8 (similarity search)": 0.74
+  }
+ },
+ "space_url": null
+}

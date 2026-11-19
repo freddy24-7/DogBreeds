@@ -16,6 +16,8 @@ Layout:
 The stage pages only talk to models through the Predictor interface in
 dogbreeds/predictors.py.
 """
+import os
+
 import gradio as gr
 
 from dogbreeds import about
@@ -80,5 +82,6 @@ with gr.Blocks(title="DogBreeds") as demo:
 
 
 if __name__ == "__main__":
-    # Port 7870, not Gradio's default 7860, which another project (a Docker container) already uses.
-    demo.launch(server_port=7870, css=CSS)
+    # Locally: port 7870, not Gradio's default 7860, which another project (a Docker container) already uses.
+    # On a Hugging Face Space, the Space sets GRADIO_SERVER_PORT (7860) and we use that.
+    demo.launch(server_port=int(os.environ.get("GRADIO_SERVER_PORT", 7870)), css=CSS)

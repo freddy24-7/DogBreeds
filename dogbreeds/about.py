@@ -5,7 +5,7 @@ REPO = "https://github.com/freddy24-7/DogBreeds"
 ABOUT = """
 ## What this is
 
-**DogBreeds** recognises a dog's breed from a photo. It's also a learning project: it was built in **small
+**DogBreeds** recognises a dog's breed from a photo. It's also a learning project: it was built in **nine
 stages**, and each stage adds one idea from machine learning engineering. Every stage is still in the app, so
 you can pick any stage in the **Demo** tab and see how the app behaved at that point.
 
@@ -21,6 +21,7 @@ you can pick any stage in the **Demo** tab and see how the app behaved at that p
 | 6. Fine-tuning | The last backbone blocks retrained, with data augmentation | Slightly worse (89.6% vs 90.3%): not shipped, by a rule set before training |
 | 7. Where did it look? | Heatmaps of where the model found its evidence | 84% of the heat falls on the dog; the heatmaps also exposed a flaw in the model's top-left corner |
 | 8. Dogs like yours | The most similar of 12,000 photos, with no breed head at all | 87% of the closest photos share the breed; the search found copied photos filed under two breeds |
+| 9. Ready to ship | A self-contained 120 MB package of the app, measured as a server would run it | It needs 566 MB of memory, more than free hosting plans give, so it isn't online; the README shows how to host it |
 
 The model the app uses for breeds is **EfficientNet-B2 with ImageNet's own head** (stages 2–4). Stages 5 and 6
 trained alternatives, but neither beat it on the measures we set in advance, so they weren't shipped.
@@ -63,7 +64,7 @@ measurements behind every decision.
 | `dogbreeds/finetune.py` | Training our own head and fine-tuning (stages 5–6) |
 | `dogbreeds/heatmap.py` | Heatmaps (stage 7) |
 | `dogbreeds/similar.py` | Similarity search (stage 8) |
-| `scripts/` | The measurements that produce `config/`, `reports/` and `docs/` |
+| `scripts/` | The measurements that produce `config/`, `reports/` and `docs/`; `stage9_deploy.py` packages the app for a server |
 | `tests/` | The tests, including a contract every predictor must pass |
 
 **Run it yourself:**
